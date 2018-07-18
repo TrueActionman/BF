@@ -339,12 +339,12 @@
      <ul><em>Any of the attributes may be "any," "don't care" or "unknown." For instance, strict bounds checking is equally  effective regardless of the location, magnitude, data size or excursion of the violation. Keeping return addresses in a separate stack  helps prevent problems occurring from write accesses when the array location is the stack.</em></ul>
     <p><fontS>Causes</fontS></p>
     <ul><p><strong>Data Exceeds Array</strong></p>
-        <li>Array Too Small</li>
+        <ul><li>Array Too Small</li>
         <p><em>The array was allocated smaller than it should have been. This may occur because the programmer leaves out a factor, like the size of a header, uses the wrong variable, or forgets room for a null to terminate a string.</em></p>
         <li>Too Much Data</li>
         <p><em>More data is accessed than was anticipated. This may occur because the string is not NULL terminated or the amount of data is calculated differently than the size of the buffer (e.g. heartbleed).</em></p>
     <p><em>Exposition:</em> When we examine code, we can say in some cases that the programmer allocated the array too small, such as in CVE-2015-0235 - Ghost. The code computes the size of a buffer needed, but leaves out one factor, which makes the buffer four bytes short. In other cases, too much data was accessed, such as in CVE-2014-0160 - Heartbleed. A string was stored in an array, but instead of computing the length of the string, the code used a length from the input, which was not checked against the string. This can cause the code to read far more from the buffer than was allocated. In both cases, the size of the data exceeds the size of the array. Just looking at the code, it may be difficult to determine which case it is - it needs semantic content. That's why the two are sub-causes of one cause.</p>
-    <p><strong>Wrong Index / Pointer out of Range</strong></p>
+  </ul><p><strong>Wrong Index / Pointer out of Range</strong></p>
     <p><strong>Contributing Causes</strong></p>
     <p>Data Exceeds Array may be caused by an Input [that is] Not Checked Properly [REF] or by an Incorrect Calculation [REF]. The specific cases of Data Exceeds Array are Array Too Small and Too Much Data. Too Much Data may be caused by No NULL Termination [REF]. Wrong Index [or] Pointer Out of Range may be caused by Incorrect Calculation, too, or by an Incorrect Conversion [REF].</p>
     <p>The specific cases of Incorrect Calculation are Missing Factor, Incorrect Argument, Off By One, Integer Coercion, Integer Overflow Wrap-around and Integer Underflow.
