@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <meta name="description" content="">
+     <meta name="author" content="">
+      <title>Information Exposure (IEX) Class</title>
+      <script src="../vendor/jquery/jquery.min.js"></script>
+      <script type="text/javascript" src="../vendor/jquery/jquery.maphilight.js"></script>
+
+      <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
+      <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="../css/styles.css" rel="stylesheet">
+   </head>
+   <body class="fixed-nav sticky-footer bg-lightt" id="page-top">
+     <nav class="navbar navbar-expand-lg navbar-light bg-lightt fixed-top" id="mainNav">
+
+             <div class="collapse navbar-collapse" id="navbarsExampleContainer">
+               <div class="mr-auto">
+                 <img class="" src="../images/nist.png"></img>
+       <img class="" src="../images/samate.png"></img>
+
+       <fontTT>The Bugs Framework (BF) <span class="remove">-</span> </fontTT> <fontSS> <span class="remove"><red>Software developers' and testers' "Best Friend"<red></span><fontSS>
+       </div>
+       <form class="form-inline my-2 my-md-0" action="../search.html">
+         <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input" >
+         <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled="disabled">Search</button>
+       </form>
+             </div></nav>
+         <!-- Navigation-->
+         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+           <div class="mobile ">
+             <img class="img-fluid" src="../images/nist.png"></img>
+           <img class="img-fluid" src="../images/samate.png"></img>
+
+
+         </div><span class="ml-auto mobile"><fontTT>The Bugs Framework (BF)</fontTT></span>
+         <span class="mr-auto mobile2"><fontTT>The Bugs Framework</fontTT></span>
+           <button class="navbar-toggler navbar-toggler-right ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+       <div class="collapse navbar-collapse" id="navbarResponsive">
+         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
+             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+               <i class="fa fa-fw fa-home"></i>
+               <span class="nav-link-text">Home</span>
+             </a>
+             <ul class="sidenav-second-level collapse" id="collapseComponents2">
+               <li>
+                 <a href="../index.html">Welcome</a>
+               </li>
+               <li>
+                 <a href="../Home/News and Events.html">News and Events</a>
+               </li>
+               <li>
+                 <a href="../Home/Contact Info.html">Contact Info</a>
+               </li>
+             </ul>
+           </li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Background">
+             <a class="nav-link" href="../Background/index.html">
+               <i class="fa fa-fw fa-info"></i>
+               <span class="nav-link-text">Background</span>
+             </a>
+           </li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Classes">
+             <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+               <i class="fa fa-fw fa-table"></i>
+               <span class="nav-link-text">Classes</span>
+             </a>
+             <ul class="sidenav-second-level collapse show" id="collapseComponents3">
+               <li>
+                 <a href="ARG.html"><fontL>ARG</fontL></a>
+               </li>
+               <li >
+                 <a href="ATN.html"><fontL>ATN</fontL></a>
+               </li>
+               <li >
+                 <a href="AUT.html"><fontL>AUT</fontL></a>
+               </li>
+               <li >
+                 <a href="BOF.html">BOF</a>
+               </li>
+               <li>
+                 <a href="CIF.html">CIF</a>
+               </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents6" >
+
+                   <span class="nav-link-text">ENC, KMN, VRF</span>
+                 </a>
+               <ul class="sidenav-third-level collapse " id="collapseComponents6">
+                 <li >
+                   <a href="CRY.html" >Model</a>
+                 </li>
+               <li >
+                 <a href="ENC.html">ENC</a>
+               </li>
+
+               <li >
+                 <a href="KMN.html">KMN</a>
+               </li>
+
+
+               <li>
+                 <a href="VRF.html">VRF</a>
+               </li>
+             </ul></li>
+
+               <li>
+                 <a href="FRS.html">FRS</a>
+               </li>
+               <li class="active">
+                 <a href="IEX.html">IEX</a>
+               </li>
+               <li >
+                 <a href="INI.html"><fontL>INI</fontL></a>
+               </li>
+               <li>
+                 <a href="INJ.html">INJ</a>
+               </li>
+               <li >
+                 <a href="MAL.html"><fontL>MAL</fontL></a>
+               </li>
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents7" >
+
+                   <span class="nav-link-text">PRN, TRN </span>
+                 </a>
+               <ul class="sidenav-third-level collapse " id="collapseComponents7">
+                 <li >
+                   <a href="RNModel.html" >Model</a>
+                 </li>
+                 <li >
+                   <a href="PRN.html">PRN</a>
+                 </li>
+               <li >
+                 <a href="TRN.html">TRN</a>
+               </li>
+
+
+
+             </ul></li>
+               <li >
+                 <a href="PTR.html"><fontL>PTR</fontL></a>
+               </li>
+
+               <li >
+                 <a href="WOP.html"><fontL>WOP</fontL></a>
+               </li>
+             </ul>
+             </li>
+             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
+             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+               <i class="fa fa-fw fa-star"></i>
+               <span class="nav-link-text">Examples</span>
+             </a>
+             <ul class="sidenav-second-level collapse" id="collapseComponents">
+               <li >
+                 <a href="../Examples/ARG.html"><fontL>ARG</fontL></a>
+               </li>
+               <li >
+                 <a href="../Examples/ATN.html"><fontL>ATN</fontL></a>
+               </li>
+               <li >
+                 <a href="../Examples/AUT.html"><fontL>AUT</fontL></a>
+               </li>
+               <li >
+                 <a href="../Examples/BOF.html">BOF</a>
+               </li>
+               <li>
+                 <a href="../Examples/CIF.html">CIF</a>
+               </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents8" >
+
+                   <span class="nav-link-text">ENC, KMN, VRF</span>
+                 </a>
+               <ul class="sidenav-third-level collapse " id="collapseComponents8">
+
+               <li >
+                 <a href="../Examples/ENC.html">ENC</a>
+               </li>
+
+               <li >
+                 <a href="../Examples/KMN.html">KMN</a>
+               </li>
+
+
+               <li>
+                 <a href="../Examples/VRF.html">VRF</a>
+               </li>
+             </ul></li>
+
+               <li>
+                 <a href="../Examples/FRS.html">FRS</a>
+               </li>
+               <li >
+                 <a href="../Examples/INI.html"><fontL>INI</fontL></a>
+               </li>
+               <li>
+                 <a href="../Examples/INJ.html">INJ</a>
+               </li>
+               <li >
+                 <a href="../Examples/MAL.html"><fontL>MAL</fontL></a>
+               </li>
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents9" >
+
+                   <span class="nav-link-text">PRN, TRN </span>
+                 </a>
+               <ul class="sidenav-third-level collapse " id="collapseComponents9">
+
+                 <li >
+                   <a href="../Examples/PRN.html">PRN</a>
+                 </li>
+               <li >
+                 <a href="../Examples/TRN.html">TRN</a>
+               </li>
+
+
+
+             </ul></li>
+               <li >
+                 <a href="../Examples/PTR.html"><fontL>PTR</fontL></a>
+               </li>
+
+               <li >
+                 <a href="../Examples/WOP.html"><fontL>WOP</fontL></a>
+               </li>
+             </ul>
+           </li>
+
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
+             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+               <i class="fa fa-fw fa-lightbulb-o"></i>
+               <span class="nav-link-text">Enlightenment</span>
+             </a>
+             <ul class="sidenav-second-level collapse" id="collapseComponents4">
+               <li>
+                 <a href="../Enlightenment/Definitions.html">Definitions</a>
+               </li>
+               <li>
+                 <a href="../Enlightenment/otherclassifications.html">Other Classifications</a>
+               </li>
+
+             </ul>
+           </li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Publications">
+             <a class="nav-link" href="../Publications/index.html">
+               <i class="fa fa-fw fa-book"></i>
+               <span class="nav-link-text">Publications</span>
+             </a>
+           </li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Team">
+             <a class="nav-link" href="../Team/index.html">
+               <i class="fa fa-fw fa-users"></i>
+               <span class="nav-link-text">Team</span>
+             </a>
+           </li>
+         </ul>
+         <ul class="navbar-nav sidenav-toggler">
+           <li class="nav-item">
+             <a class="nav-link text-center" id="sidenavToggler">
+               <i class="fa fa-fw fa-angle-left"></i>
+             </a>
+           </li>
+         </ul>
+         <form class="form-inline my-2 my-md-0 mobile mobile2" action="../search.html">
+           <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input" >
+           <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled="disabled">Search</button>
+         </form>
+       </div>
+     </nav>
+      <div class="content-wrapper">
+         <div class="container-fluid" align="center">
+            <fontST>Information Exposure (IEX) Class</fontST>
+         </div>
+         <div class="container-fluid" align="left">
+            <p>
+               <FontS>Definition</FontS>
+            </p>
+            <ul>We define Information Exposure Bugs (IEX) as:</ul>
+            <ul><span class="text-primary"><i>The software allows leak of information</i></span><span class="text-primary"><i>/data through </i></span><span class="text-primary"><u><i>legitimate or </i></u></span><span class="text-primary"><u><i>side</i></u></span><span class="text-primary"><u><i>/covert</i></u></span><span class="text-primary"><u><i> channel</i></u></span><span class="text-primary"><u><i>s</i></u></span><span class="text-primary"><i>.</i></span></ul>
+            <ul>Note that the terms data and information are often used interchangeably. Data is “a set of values of qualitative or quantitative variables” [<a href="file:///Users/fnn3/Downloads/IEX.doc">1</a>]. Information is “any entity or form that provides the answer to a question of some kind or resolves uncertainty" <a href="#ref">[2]</a>. To what extent data is informative to someone depends on to what extent it is unexpected by that person.</ul>
+            <ul>Note that exposure is to an entity that should not have it, not necessarily due to a security concern. </ul>
+            <ul>IEX is related to: BOF, INJ, CIF, ENC, VRF, KMN, TRN, PRN.</ul>
+            <p>
+               <FontS>Taxonomy</FontS>
+            </p>
+            <ul>The causes, attributes and consequences of the Information Exposure Bugs (IEX) class are depicted and explained below. </ul>
+            <div align="center">
+               <p><a target="_blank" href="images/IEX.png"><img class=" map" src="images/IEX.png" usemap="#image-map"></a></p>
+
+               <map name="image-map">
+                   <area target="_blank" alt="" title="" href="ATN.html" coords="927,82,1018,119" shape="rect">
+                   <area target="_blank" alt="" title="" href="ENC.html" coords="936,171,998,207" shape="rect">
+                   <area target="_blank" alt="" title="" href="VRF.html" coords="936,259,996,296" shape="rect">
+                   <area target="_blank" alt="" title="" href="KMN.html" coords="935,348,997,385" shape="rect">
+                   <area target="_blank" alt="" title="" href="INJ.html" coords="336,566,274,529" shape="rect">
+                   <area target="_blank" alt="" title="" href="BOF.html" coords="360,573,422,609" shape="rect">
+                   <area target="_blank" alt="" title="" href="CIF.html" coords="443,614,504,651" shape="rect">
+                   <area target="_blank" alt="" title="" href="ENC.html" coords="130,275,190,311" shape="rect">
+                   <area target="_blank" alt="" title="" href="VRF.html" coords="206,275,267,311" shape="rect">
+                   <area target="_blank" alt="" title="" href="KMN.html" coords="280,275,342,312" shape="rect">
+                   <area target="_blank" alt="" title="" href="ATN.html" coords="356,275,447,307" shape="rect">
+               </map>
+               <p><em>Information Exposure (IEX) Class<span class="text-info"> - click on image for detailed view</span>.</em></p>
+            </div>
+            <p>
+               <FontS>Attributes</FontS>
+            </p>
+            <ul>
+               <li><b>Information</b><b>/Data</b><b> </b>– Credentials, System Data, State Data, Cryptographic Data, Digital Documents, Personally Identifiable Data, Corporate Data, etc. </li>
+            </ul>
+            <ul>Credentials, System Data, State Data, Cryptographic Data, Digital Documents must be encrypted when stored or transferred (see ENC). Credentials include Password, Token, Smart Card, Digital Certificate, Biometrics
+               (fingerprint, hand configuration, retina, iris, voice.) System Data could be pathnames, configurations, logs, Web usage. State data includes ooperational data, such as SQL table names and column names, ports used, server names. Cryptographic Data is hashes, keys, keying material. Keying material is cryptographic
+               keys, initialization vectors, shared secrets, domain parameters, random bits (seeds,
+               salts, nonces).</ul>
+            <ul>Personally Identifiable Data corresponds to Personally Identifiable Information (PII)
+               and Personally Identifiable Financial Information (PIFI). PII is any information/data that could be used to distinguish one person from another – e.g. social security number (SSN), driver’s license number, identification card number. PIFI includes financial account numbers with security codes/ access codes/ password. Related to PII and PIFI are also Protected Health Information (PHI) and Payment Card Information (PCI). PHI includes any part of a patient's medical record or payment history. PCI includes cardholder name, service code, expiration date, CVC2/ CVV2/ CID value, PIN or PIN block, content of magnetic stripe, etc.</ul>
+            <ul>Business Data covers intellectual property &amp; trade secrets, operational &amp; inventory data, industry
+               specific data, and also PII and PCI customer data and PII employee data.</ul>
+            <ul>
+               <li><b>Sensitivity</b><b> </b>– High, Low. </li>
+            </ul>
+            <ul>This indicated the sensitivity level of leaked information/data. Highly sensitive information/data must be encrypted when stored or transferred (see
+               ENC) – e.g. credentials or SSNs. Some information/data is non-sensitive, and exposure would not result in harm – e.g. such from public records, phone books,
+               online directories.</ul>
+            <ul>
+               <li><b>Data State</b><b> </b>– Stored, Used, Transferred. </li>
+            </ul>
+            <ul>This reflects if data is in rest, in use, or in transit. Data can be in rest in files (e.g. ini, temp, configuration, log server, debug, cleanup, email attachment, login buffer, executable, backup, core dump, access control list, private data index), directories (Web root,
+               FTP root, CVS repository), on discs. Data can be in use by functions/programs -- source code (incl. comments);
+               threads, registries, cookies, , GUI, environmental variables. Data can be also in transit between processes or over a network.</ul>
+            <ul>
+               <li><b>Data Size </b>– Little, Some, Huge. </li>
+            </ul>
+            <ul>This indicates how much information/data is leaked.</ul>
+            <ul>As in magnitude, these distinctions are important in some cases. For instance, Heartbleed <a href="#ref">[3]</a> might not have been a severe problem if it just exfiltrated a little data. The fact
+               that it may exfiltrate a huge amount of data greatly increases the chance that very
+               important information will be leaked. </ul>
+            <ul>
+               <li><b>Exposure </b>– Selective, Random. </li>
+            </ul>
+            <ul>This reflects if an attacker can choose what and where to be exposed. Selective  means the attacker can choose where and what to read. Random would be like going through the trash (e.g. heartbleed <a href="#ref">[3]</a>).</ul>
+            <ul>
+               <li><b>Frequency </b>– Once, On-demand, On-timing, Rare, Often, Fast. </li>
+            </ul>
+            <ul>This shows how often the exposure can/does occur. On-timing means depending on timing (e.g. in race condition). Note that Frequency * Size = Rate.</ul>
+            <ul>
+               <li><b>Channel</b><b> </b>– Legitimate, Side, Covert. </li>
+            </ul>
+            <ul>This indicates the medium by which information/data was leaked. </ul>
+            <ul>A legitimate channel is designed to be used by functions, programs, sessions, etc. to transmit information. Information may leak when either unintended information is carried, or an unintended recipient gets the information either accidentally or because of an attacker's actions. Information/data may leak via queries (incl. query strings in GET request), hardcoded information (password, cryptographic key, etc.), error messages, exception message, process environment, cleanup, class cloning, serializable class, public method accessing private variable, etc. Cleanup includes removing previously used information, buffer cleanup (dead store removal), use of realloc() – not removed from memory, etc. Sessions may leak information/data via session-ID length, sessions state boundaries, caching, cleanup.</ul>
+            <ul>A side channel is not intended to transmit information; however, it does transmit information <a href="#ref">[4]</a>. A covert channel is an intentionally created hidden communication channel <a href="#ref">[5]</a> – it is a special kind of a side channel, where the attacker controls both the part that induces the side effect and the part that measures it <a href="#ref">[6]</a>. Side and covert channels allow information to be revealed and/or deduced due to discrepancies/behavioral inconsistencies – conveying different responses (e.g. an operation is successful or not), taking different time (e.g. CPU timing), consuming different power, using different storage, emitting different electromagnetic radiation, etc. Behavioral inconsistency could be internal or external. Covert channel attacks most commonly use Trojan horses. Examples of side channel attacks are Meltdown <a href="#ref">[7]</a>, Spectre <a href="#ref">[
+              7]</a>, as well as the inference attacks <a href="#ref">[8]</a>.</ul>
+            <ul>
+               <li><b>Use</b><b> </b>– Direct, Indirect<b>. </b></li>
+            </ul>
+            <ul>Direct means leaked information/data is valuable on its own. Indirect means it is useful for launching other attacks.</ul>
+            <p>
+               <FontS>Causes</FontS>
+            </p>
+            <ul>In the graph of causes: Uncleared Before Release means information/data going from one control sphere back to the general pool. Cross-Boundary Removal means information/data going from one control sphere to another control sphere. Where, a control sphere is a set of resources and behaviors that are accessible to a single actor, or a group
+               of actors that all share the same security restrictions <a href="#ref">[9]</a>.</ul>
+            <ul>Protect Sensitive Data covers also prepare sensitive data</ul>
+            <ul>Software/Hardware Behavior covers algorithms/execution, which observable behavior
+               (time, power, cache lines) dependents on the data.</ul>
+            <ul>Improper Details cover including passwords, paths, SQL query structure/logic, etc.
+               in error/exception, etc. messages.</ul>
+            <ul>ENC includes failure to encrypt (cleartext storage, recoverable format storage, cleartext
+               transmission) and failure to properly encrypt (inadequate encryption strength, use
+               of risky/broken cryptographic algorithm, missing required cryptographic step, use
+               of hard-coded cryptographic key). </ul>
+            <ul>ATN/AUT includes improper authentication, credentials compromise, account access.</ul>
+            <ul>INJ includes add command and mask legitimate command/information.</ul>
+            <ul></ul>
+            <p>
+               <FontS>Related CWEs and SFP</FontS>
+            </p>
+            <ul>
+               <li>CWEs related to IEX are&nbsp;<a href="https://cwe.mitre.org/data/definitions/8.html">CWE-8</a>, <a href="https://cwe.mitre.org/data/definitions/11.html">CWE-11</a>, <a href="https://cwe.mitre.org/data/definitions/13.html">CWE-13</a><a href="https://cwe.mitre.org/data/definitions/200.html">, </a><a href="https://cwe.mitre.org/data/definitions/200.html">CWE-200</a>, <a href="https://cwe.mitre.org/data/definitions/201.html">CWE-201</a>, <a href="https://cwe.mitre.org/data/definitions/202.html">CWE-202</a>, <a href="https://cwe.mitre.org/data/definitions/203.html">CWE-203</a>, <a href="https://cwe.mitre.org/data/definitions/204.html">CWE-204</a>, <a href="https://cwe.mitre.org/data/definitions/205.html">CWE-205</a>, <a href="https://cwe.mitre.org/data/definitions/206.html">CWE-206</a>, <a href="https://cwe.mitre.org/data/definitions/207.html">CWE-207</a>, <a href="https://cwe.mitre.org/data/definitions/208.html">CWE-208</a><a href="https://cwe.mitre.org/data/definitions/209.html">, </a><a href="https://cwe.mitre.org/data/definitions/209.html">CWE-209</a>, <a href="https://cwe.mitre.org/data/definitions/210.html">CWE-210</a>, <a href="https://cwe.mitre.org/data/definitions/211.html">CWE-211</a>, <a href="https://cwe.mitre.org/data/definitions/212.html">CWE-212</a>, <a href="https://cwe.mitre.org/data/definitions/213.html">CWE-213</a>, <a href="https://cwe.mitre.org/data/definitions/214.html">CWE-214</a>, <a href="https://cwe.mitre.org/data/definitions/215.html">CWE-215</a>, <a href="https://cwe.mitre.org/data/definitions/226.html">CWE-226</a>, <a href="https://cwe.mitre.org/data/definitions/244.html">CWE-244</a>, <a href="https://cwe.mitre.org/data/definitions/260.html">CWE-260</a>, <a href="https://cwe.mitre.org/data/definitions/359.html">CWE-359</a>, <a href="https://cwe.mitre.org/data/definitions/377.html">CWE-377</a>, <a href="https://cwe.mitre.org/data/definitions/385.html">CWE-3</a><a href="https://cwe.mitre.org/data/definitions/385.html">85</a>, <a href="https://cwe.mitre.org/data/definitions/402.html">CWE-402</a>, <a href="https://cwe.mitre.org/data/definitions/403.html">CWE-403</a>, <a href="https://cwe.mitre.org/data/definitions/433.html">CWE-433</a><a href="https://cwe.mitre.org/data/definitions/488.html">, </a><a href="https://cwe.mitre.org/data/definitions/488.html">CWE-488</a>, <a href="https://cwe.mitre.org/data/definitions/492.html">CWE-492</a>, <a href="https://cwe.mitre.org/data/definitions/495.html">CWE-495</a>, <a href="https://cwe.mitre.org/data/definitions/497.html">CWE-497</a>, <a href="https://cwe.mitre.org/data/definitions/498.html">CWE-498</a>,  <a href="https://cwe.mitre.org/data/definitions/499.html">CWE-499</a>, <a href="https://cwe.mitre.org/data/definitions/524.html">CWE-524</a>, <a href="https://cwe.mitre.org/data/definitions/514.html">CWE-514</a>, <a href="https://cwe.mitre.org/data/definitions/515.html">CWE-5</a><a href="https://cwe.mitre.org/data/definitions/515.html">15</a>, <a href="https://cwe.mitre.org/data/definitions/525.html">CWE-525</a>, <a href="https://cwe.mitre.org/data/definitions/527.html">CWE-527</a>, <a href="https://cwe.mitre.org/data/definitions/528.html">CWE-528</a>, <a href="https://cwe.mitre.org/data/definitions/529.html">CWE-529</a>, <a href="https://cwe.mitre.org/data/definitions/530.html">CWE-530</a>, <a href="https://cwe.mitre.org/data/definitions/532.html">CWE-532</a>, <a href="https://cwe.mitre.org/data/definitions/535.html">CWE-535</a><a href="https://cwe.mitre.org/data/definitions/536.html">, </a><a href="https://cwe.mitre.org/data/definitions/536.html">CWE-536</a>, <a href="https://cwe.mitre.org/data/definitions/537.html">CWE-537</a>, <a href="https://cwe.mitre.org/data/definitions/538.html">CWE-538</a>, <a href="https://cwe.mitre.org/data/definitions/539.html">CWE-539</a>, <a href="https://cwe.mitre.org/data/definitions/540.html">CWE-540</a>, <a href="https://cwe.mitre.org/data/definitions/541.html">CWE-541</a>, <a href="https://cwe.mitre.org/data/definitions/546.html">CWE-546</a>,  <a href="https://cwe.mitre.org/data/definitions/548.html">CWE-548</a>, <a href="https://cwe.mitre.org/data/definitions/550.html">CWE-550</a>, <a href="https://cwe.mitre.org/data/definitions/552.html">CWE-552</a>, <a href="https://cwe.mitre.org/data/definitions/555.html">CWE-555</a>, <a href="https://cwe.mitre.org/data/definitions/598.html">CWE-598</a>, <a href="https://cwe.mitre.org/data/definitions/612.html">CWE-612</a>, <a href="https://cwe.mitre.org/data/definitions/615.html">CWE-615</a>, <a href="https://cwe.mitre.org/data/definitions/642.html">CWE-642</a>, <a href="https://cwe.mitre.org/data/definitions/651.html">CWE-651</a>, <a href="https://cwe.mitre.org/data/definitions/668.html">CWE-668</a>.</li>
+            </ul>
+            <ul>
+               <li>The only related SFP cluster is SFP Primary Cluster: Information Leak.</li>
+            </ul>
+            <p>
+               <FontS><a name="ref">References</a></FontS>
+            </p>
+            <ul><small>[1] <a href="https://en.wikipedia.org/wiki/Data">https://en.wikipedia.org/wiki/Data</a><span class="text-primary"> </span></small></ul>
+            <ul><small>[2] <span class="text-primary">https://en.wikipedia.org/wiki/Information  </span></small></ul>
+            <ul><small>[3] <span class="text-primary">http://heartbleed.com/</span></small></ul>
+            <ul><small>[4] <a href="http://ver.miun.se/courses/security/lectures/sidechannels.pdf">http://ver.miun.se/courses/security/lectures/sidechannels.pdf</a></small></ul>
+            <ul><small>[5] <a href="https://security.stackexchange.com/questions/113332/covert-overt-and-side-channels">https://security.stackexchange.com/questions/113332/covert-overt-and-side-channels</a><span class="text-primary"> </span></small></ul>
+            <ul><small>[6] <a href="https://meltdownattack.com/meltdown.pdf">https://meltdownattack.com/meltdown.pdf</a></small></ul>
+            <ul><small>[7] <a href="https://meltdownattack.com">https://meltdownattack.com</a><span class="text-primary"> </span></small></ul>
+            <ul><small>[8] <a href="https://en.wikipedia.org/wiki/Inference_attack">https://en.wikipedia.org/wiki/Inference_attack</a></small></ul>
+            <ul><small>[9] <span class="text-primary">https://cwe.mitre.org/documents/glossary/index.html#Control Sphere</span><span class="text-primary"> </span><span class="text-primary"> </span></small></ul>
+         </div>
+         <footer class="sticky-footer">
+            <div class="container">
+               <div class="text-center"><small>
+                     <p style="top: 9px; position:relative;" class=""><a href="https://www.nist.gov/disclaimer">Disclaimer Notice</a> &amp; <a href="https://www.nist.gov/privacy-policy"> Privacy Statement / Security Notice</a><br><a href="https://www.nist.gov/">NIST</a> is an Agency of the <a href="https://www.commerce.gov/">U.S. Dept. of Commerce</a></p></small></div>
+            </div>
+         </footer><a class="scroll-to-top rounded" href="#page-top"><i class="fa fa-angle-up"></i></a><script src="../vendor/popper/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script><script src="../vendor/jquery-easing/jquery.easing.min.js"></script><script src="../js/custom.js"></script></div>
+   </body>
+</html>

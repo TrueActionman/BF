@@ -12,3 +12,9 @@ $(function () {
         }
     });
 });
+$(function() {
+    $('.map').maphilight({
+        fillColor: '008800'
+    });
+
+});
