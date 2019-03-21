@@ -1,356 +1,531 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Verification Bugs (VRF) Class </title>
+      <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
+      <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="../css/styles.css" rel="stylesheet">
+   </head>
+   <body xml:space="preserve" class="fixed-nav sticky-footer bg-lightt" id="page-top">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>Verification Bugs (VRF) Class</title>
-  <!-- Bootstrap core CSS-->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
-<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Custom styles for this template-->
-  <link href="../css/styles.css" rel="stylesheet">
-</head>
-
-<body class="fixed-nav sticky-footer bg-light" id="page-top">
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-lightt fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-lightt fixed-top" id="mainNav">
 
 
+         <div class="collapse navbar-collapse" id="navbarsExampleContainer">
+
+            <div class="mr-auto">
+               <img class="" src="../images/nist.png">
+               <img class="" src="../images/samate.png">
 
 
-      <div class="collapse navbar-collapse" id="navbarsExampleContainer">
-        <div class="mr-auto">
-          <img class="" src="../images/nist.png"></img>
-<img class="" src="../images/samate.png"></img>
+               <fontTT>The Bugs Framework (BF) <span class="remove">-</span> </fontTT>
+               <fontSS> <span class="remove">
+                     <red>Software developers' and testers' "Best Friend"</red></span></fontSS>
+               </div>
 
-<fontTT>The Bugs Framework (BF) <span class="remove">-</span> </fontTT> <fontSS> <span class="remove"><red>Software developers' and testers' "Best Friend"<red></span><fontSS>
-</div>
-<form class="form-inline my-2 my-md-0" action="../search.html">
-  <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input" >
-  <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled="disabled">Search</button>
-</form>
-      </div></nav>
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
-    <div class="mobile ">
-      <img class="img-fluid" src="../images/nist.png"></img>
-    <img class="img-fluid" src="../images/samate.png"></img>
+            <form class="form-inline my-2 my-md-0" action="../search.html">
+               <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input">
+               <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled>Search</button>
+               </form>
+            </div>
+      </nav>
 
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
 
-  </div><span class="ml-auto mobile"><fontTT>The Bugs Framework (BF)</fontTT></span>
-  <span class="mr-auto mobile2"><fontTT>The Bugs Framework</fontTT></span>
-    <button class="navbar-toggler navbar-toggler-right ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-home"></i>
-            <span class="nav-link-text">Home</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents2">
-            <li>
-              <a href="../index.html">Welcome</a>
-            </li>
-            <li>
-              <a href="../Home/News and Events.html">News and Events</a>
-            </li>
-            <li>
-              <a href="../Home/Contact Info.html">Contact Info</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Background">
-          <a class="nav-link" href="../Background/index.html">
-            <i class="fa fa-fw fa-info"></i>
-            <span class="nav-link-text">Background</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Classes">
-          <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Classes</span>
-          </a>
-          <ul class="sidenav-second-level collapse show" id="collapseComponents3">
-            <li>
-              <a href="ARG.html"><fontL>ARG</fontL></a>
-            </li>
-            <li >
-              <a href="ATN.html"><fontL>ATN</fontL></a>
-            </li>
-            <li >
-              <a href="AUT.html"><fontL>AUT</fontL></a>
-            </li>
-            <li >
-              <a href="BOF.html">BOF</a>
-            </li>
-            <li>
-              <a href="CIF.html">CIF</a>
-            </li>
-
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-              <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseComponents6" >
-
-                <span class="nav-link-text">ENC, KMN, VRF</span>
-              </a>
-            <ul class="sidenav-third-level collapse show" id="collapseComponents6">
-              <li >
-                <a href="CRY.html" >Model</a>
-              </li>
-            <li >
-              <a href="ENC.html">ENC</a>
-            </li>
-
-            <li >
-              <a href="KMN.html">KMN</a>
-            </li>
+         <div class="mobile ">
+            <img class="img-fluid" src="../images/nist.png">
+            <img class="img-fluid" src="../images/samate.png">
 
 
-            <li class="active">
-              <a href="VRF.html">VRF</a>
-            </li>
-          </ul></li>
+            </div><span class="ml-auto mobile">
+            <fontTT>The Bugs Framework (BF)</fontTT></span>
+         <span class="mr-auto mobile2">
+            <fontTT>The Bugs Framework</fontTT></span>
+         <button class="navbar-toggler navbar-toggler-right ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <li>
-              <a href="FRS.html">FRS</a>
-            </li>
-            <li>
-              <a href="IEX.html">IEX</a>
-            </li>
-            <li >
-              <a href="INI.html"><fontL>INI</fontL></a>
-            </li>
-            <li>
-              <a href="INJ.html">INJ</a>
-            </li>
-            <li >
-              <a href="MAL.html"><fontL>MAL</fontL></a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents7" >
+         <div class="collapse navbar-collapse" id="navbarResponsive">
 
-                <span class="nav-link-text">PRN, TRN </span>
-              </a>
-            <ul class="sidenav-third-level collapse " id="collapseComponents7">
-              <li >
-                <a href="RNModel.html" >Model</a>
-              </li>
-              <li >
-                <a href="PRN.html">PRN</a>
-              </li>
-            <li >
-              <a href="TRN.html">TRN</a>
-            </li>
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
+                  <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+                     <i class="fa fa-fw fa-home"></i>
+                     <span class="nav-link-text">Home</span>
+                     </a>
+
+                  <ul class="sidenav-second-level collapse" id="collapseComponents2">
+
+                     <li>
+                        <a href="../index.html">Welcome</a>
+                        </li>
+
+                     
+                     <li>
+                        <a href="../Home/Contact Info.html">Contact Info</a>
+                        </li>
+                     </ul>
+                  </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Background">
+                  <a class="nav-link" href="../Background/index.html">
+                     <i class="fa fa-fw fa-info"></i>
+                     <span class="nav-link-text">Background</span>
+                     </a>
+                  </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Classes">
+                  <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+                     <i class="fa fa-fw fa-table"></i>
+                     <span class="nav-link-text">Classes</span>
+                     </a>
+                     <ul class="sidenav-second-level collapse show" id="collapseComponents3">
+                       <li >
+                          <a href="ARC.html">
+                             ARC</a>
+                          </li>
+                        <li>
+                           <a href="ARG.html">
+                              <fontL>ARG</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="ATN.html">
+                              <fontL>ATN</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="AUT.html">
+                              <fontL>AUT</fontL></a>
+                           </li>
+
+                        <li >
+                           <a href="BOF.html">BOF</a>
+                           </li>
+
+                        <li>
+                           <a href="CIF.html">CIF</a>
+                           </li>
+
+                        <li>
+                           <a href="DEP.html">DEP</a>
+                           </li>
+
+
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                           <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents6">
+
+                              <span class="nav-link-text">ENC, KMN, VRF</span>
+                              </a>
+
+                           <ul class="sidenav-third-level collapse show" id="collapseComponents6">
+
+                              <li>
+                                 <a href="CRY.html">Model</a>
+                                 </li>
+
+                              <li>
+                                 <a href="ENC.html">ENC</a>
+                                 </li>
+
+
+                              <li>
+                                 <a href="KMN.html">KMN</a>
+                                 </li>
 
 
 
-          </ul></li>
-            <li >
-              <a href="PTR.html"><fontL>PTR</fontL></a>
-            </li>
-
-            <li >
-              <a href="WOP.html"><fontL>WOP</fontL></a>
-            </li>
-          </ul>
-          </li>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-star"></i>
-            <span class="nav-link-text">Examples</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li >
-              <a href="../Examples/ARG.html"><fontL>ARG</fontL></a>
-            </li>
-            <li >
-              <a href="../Examples/ATN.html"><fontL>ATN</fontL></a>
-            </li>
-            <li >
-              <a href="../Examples/AUT.html"><fontL>AUT</fontL></a>
-            </li>
-            <li >
-              <a href="../Examples/BOF.html">BOF</a>
-            </li>
-            <li>
-              <a href="../Examples/CIF.html">CIF</a>
-            </li>
-
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents8" >
-
-                <span class="nav-link-text">ENC, KMN, VRF</span>
-              </a>
-            <ul class="sidenav-third-level collapse " id="collapseComponents8">
-
-            <li >
-              <a href="../Examples/ENC.html">ENC</a>
-            </li>
-
-            <li >
-              <a href="../Examples/KMN.html">KMN</a>
-            </li>
-
-
-            <li>
-              <a href="../Examples/VRF.html">VRF</a>
-            </li>
-          </ul></li>
-
-            <li>
-              <a href="../Examples/FRS.html">FRS</a>
-            </li>
-            <li >
-              <a href="../Examples/INI.html"><fontL>INI</fontL></a>
-            </li>
-            <li>
-              <a href="../Examples/INJ.html">INJ</a>
-            </li>
-            <li >
-              <a href="../Examples/MAL.html"><fontL>MAL</fontL></a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents9" >
-
-                <span class="nav-link-text">PRN, TRN </span>
-              </a>
-            <ul class="sidenav-third-level collapse " id="collapseComponents9">
-
-              <li >
-                <a href="../Examples/PRN.html">PRN</a>
-              </li>
-            <li >
-              <a href="../Examples/TRN.html">TRN</a>
-            </li>
+                              <li class="active">
+                                 <a href="VRF.html">VRF</a>
+                                 </li>
+                              </ul>
+                        </li>
 
 
 
-          </ul></li>
-            <li >
-              <a href="../Examples/PTR.html"><fontL>PTR</fontL></a>
-            </li>
 
-            <li >
-              <a href="../Examples/WOP.html"><fontL>WOP</fontL></a>
-            </li>
-          </ul>
-        </li>
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="IEX">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents8">
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-lightbulb-o"></i>
-            <span class="nav-link-text">Enlightenment</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents4">
-            <li>
-              <a href="../Enlightenment/Definitions.html">Definitions</a>
-            </li>
-            <li>
-              <a href="../Enlightenment/otherclassifications.html">Other Classifications</a>
-            </li>
+                              <span class="nav-link-text">IEX</span>
+                              </a>
 
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Publications">
-          <a class="nav-link" href="../Publications/index.html">
-            <i class="fa fa-fw fa-book"></i>
-            <span class="nav-link-text">Publications</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Team">
-          <a class="nav-link" href="../Team/index.html">
-            <i class="fa fa-fw fa-users"></i>
-            <span class="nav-link-text">Team</span>
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-md-0 mobile mobile 2" action="../search.html">
-        <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input" >
-        <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled="disabled">Search</button>
-      </form>
-    </div>
-  </nav>
-  <div class="content-wrapper">
-    <div class="container-fluid" align="center">
+                           <ul class="sidenav-third-level collapse " id="collapseComponents8">
 
-        <fontST>Verification Bugs (VRF) Class</fontST>
-    </div>
-<div class="container-fluid" align="left">
-  <p><fontS>Definition</fontS></p>
-      <ul class="text-primary">The software does not properly sign data, check and prove source, or assure data is not altered.</ul>
-      <ul><em>Note that "check" is for identity authentication, "prove" is for origin (signer) non-repudiation, and "not altered" is for integrity authentication.</em></ul>
-      <ul>Please see also our <a target="_blank" href="../Classes/CRY.html" target="body" title="Model of Cryptographic Store or Transfer.">Model of Cryptographic Store or Transfer.</a></ul>
-      <ul>VRF is related to <a href="KMN.html">KMN</a>, RND, <a href="ENC.html">ENC</a>, Authentication (ATN), IEX.</ul>
-  <p><fontS>Type</fontS></p>
-      <ul>High-level, e.g., semantic.</ul>
-  <p><fontS>Taxonomy</fontS></p>
-      <ul>The causes, attributes and consequences of the Verification Bugs (VRF) class are depicted and explained below.</ul>
-  <div align="center"><p><a target="_blank" href="images/VRF.png"><img class="img-fluid" src="images/VRF.png"></a></p>
-      <p><em>Verification Bugs (VRF) class<red> - click on image for detailed view</red>.</em></p></div>
-  <p><fontS>Attributes</FontS></p>
-  <ul><li><strong>Verified Data</strong> - Secret, Public.</li>
-      <p><em>This is the data that needs verification. It may be confidential or public. Secret (confidential) data could be cryptographic hashes, secret keys, or keying material. Public data could be signed contract, documents, or public keys. </em></p>
-      <li><strong>Algorithm</strong> - Hash Function + RND, message authentication code (MAC), Digital Signature.</li>
-      <p><em>Hash functions are used for integrity authentication. They may use RND. MAC are symmetric key algorithms (one secret key per source/user), used for integrity authentication, identity authentication. It needs authentication code generation, source signs data, user gets tag for key and data, and verifies data by tag and key. Digital Signature is an asymmetric key algorithm (two keys), used for integrity and identity authentication, and origin (signer) non-repudiation. It needs key generation, signature generation, and signature verification. MAC and Digital Signature use KMN and recursively VRF. </em></p>
-      <li><strong>Security Service</strong> - Data Integrity Authentication, Identity Authentication, Origin (Signer) Non-Repudiation.</li>
-      <p><em>This is the security service the verification process failed. Integrity Authentication is for data and keys. Identity Authentication and Origin Non-Repudiation are for source authentication. </em></p></ul>
-  <p><fontS>Sites</FontS></p>
-      <ul>VRF is a high level class, so sites do not apply.</ul>
-  <p><fontS>Related CWEs and SFPs</fontS></p>
-      <ul><li>CWEs related to Verification (although some are not VRF) are
-          <a target="_blank" href="https://cwe.mitre.org/data/definitions/256.html">CWE-256</a>,
-          <a target="_blank" href="https://cwe.mitre.org/data/definitions/293.html">CWE-293</a>,
-          <a target="_blank" href="https://cwe.mitre.org/data/definitions/295.html">CWE-295</a>,
-          <a target="_blank" href="https://cwe.mitre.org/data/definitions/296.html">CWE-296</a>,
-          <a target="_blank" href="https://cwe.mitre.org/data/definitions/297.html">CWE-297</a>,
-          <a target="_blank" href="https://cwe.mitre.org/data/definitions/347.html">CWE-347</a>,
-          <a target="_blank" href="https://cwe.mitre.org/data/definitions/352.html">CWE-352</a>.</li>
-      <li>The related SFP cluster is <a target="_blank" href="https://apps.dtic.mil/docs/citations/ADB381215 ">SFP 17.2 Weak Cryptography under Primary Cluster: Cryptography</a></li></ul>
-  <p><fontS>Application</fontS></p>
-      <!--<ul>Application examples are provided <a href="../Application/VRF.html">here</a>.</ul>-->
-      <ul>Application examples are forthcoming</ul>
-  </div>
-  <footer class="sticky-footer">
-    <div class="container">
-      <div class="text-center">
-        <small><p  style="top: 9px; position:relative;" class=""><a href="https://www.nist.gov/disclaimer">Disclaimer Notice</a> & <a href="https://www.nist.gov/privacy-policy"> Privacy Statement / Security Notice</a><br><a href="https://www.nist.gov/">NIST</a> is an Agency of the <a href="https://www.commerce.gov/">U.S. Dept. of Commerce</a></p></small>
-      </div>
-    </div>
-  </footer>
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fa fa-angle-up"></i>
-  </a>
+                              <li>
+                                 <a href="IEXModel.html">Model</a>
+                                 </li>
+
+                              <li>
+                                 <a href="IEX.html">IEX</a>
+                                 </li>
 
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/popper/popper.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-  <!-- Core plugin JavaScript-->
-  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-  <!-- Custom scripts for all pages-->
-  <script src="../js/custom.js"></script>
-  <!-- Custom scripts for this page-->
-  <!-- Toggle between fixed and static navbar-->
 
 
-</div>
-</body>
+                              </ul>
+                        </li>
 
+                        <li>
+                           <a href="INI.html">INI</a>
+                           </li>
+
+                        <li>
+                           <a href="INJ.html">INJ</a>
+                           </li>
+
+                        <li>
+                           <a href="LOP.html">LOP</a>
+                           </li>
+
+                        <li>
+                           <a href="MAL.html">
+                              <fontL>MAL</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="PAR.html">PAR</a>
+                           </li>
+
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents7">
+
+                              <span class="nav-link-text">PRN, TRN </span>
+                              </a>
+
+                           <ul class="sidenav-third-level collapse " id="collapseComponents7">
+
+                              <li>
+                                 <a href="RNModel.html">Model</a>
+                                 </li>
+
+                              <li>
+                                 <a href="PRN.html">PRN</a>
+                                 </li>
+
+                              <li>
+                                 <a href="TRN.html">TRN</a>
+                                 </li>
+
+
+
+                              </ul>
+                        </li>
+
+                        <li>
+                           <a href="PTR.html">
+                              <fontL>PTR</fontL></a>
+                           </li>
+
+
+                        <li>
+                           <a href="WOP.html">
+                              <fontL>WOP</fontL></a>
+                           </li>
+                        </ul>
+                     </li>
+
+                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
+                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-star"></i>
+                        <span class="nav-link-text">Examples</span>
+                        </a>
+
+                     <ul class="sidenav-second-level collapse" id="collapseComponents">
+
+                        <li>
+                           <a href="../Examples/ARG.html">
+                              <fontL>ARG</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/ATN.html">
+                              <fontL>ATN</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/AUT.html">
+                              <fontL>AUT</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/BOF.html">BOF</a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/CIF.html">CIF</a>
+                           </li>
+
+
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents8">
+
+                              <span class="nav-link-text">ENC, KMN, VRF</span>
+                              </a>
+
+                           <ul class="sidenav-third-level collapse " id="collapseComponents8">
+
+
+                              <li>
+                                 <a href="../Examples/ENC.html">ENC</a>
+                                 </li>
+
+
+                              <li>
+                                 <a href="../Examples/KMN.html">KMN</a>
+                                 </li>
+
+
+
+                              <li>
+                                 <a href="../Examples/VRF.html">VRF</a>
+                                 </li>
+                              </ul>
+                        </li>
+
+
+
+
+                        <li>
+                           <a href="../Examples/IEX.html">IEX</a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/INI.html">
+                              <fontL>INI</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/INJ.html">INJ</a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/MAL.html">
+                              <fontL>MAL</fontL></a>
+                           </li>
+
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents9">
+
+                              <span class="nav-link-text">PRN, TRN </span>
+                              </a>
+
+                           <ul class="sidenav-third-level collapse " id="collapseComponents9">
+
+
+                              <li>
+                                 <a href="../Examples/PRN.html">PRN</a>
+                                 </li>
+
+                              <li>
+                                 <a href="../Examples/TRN.html">TRN</a>
+                                 </li>
+
+
+
+                              </ul>
+                        </li>
+
+                        <li>
+                           <a href="../Examples/PTR.html">
+                              <fontL>PTR</fontL></a>
+                           </li>
+
+
+                        <li>
+                           <a href="../Examples/WOP.html">
+                              <fontL>WOP</fontL></a>
+                           </li>
+                        </ul>
+                     </li>
+
+
+                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
+                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-lightbulb-o"></i>
+                        <span class="nav-link-text">Enlightenment</span>
+                        </a>
+
+                     <ul class="sidenav-second-level collapse" id="collapseComponents4">
+                       <li>
+                          <a href="../Enlightenment/Attributes.html">Attributes</a>
+                          </li>
+                        <li>
+                           <a href="../Enlightenment/Definitions.html">Definitions</a>
+                           </li>
+
+                        <li>
+                           <a href="../Enlightenment/otherclassifications.html">Other Classifications</a>
+                           </li>
+
+                        </ul>
+                     </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Publications">
+                  <a class="nav-link" href="../Publications/index.html">
+                     <i class="fa fa-fw fa-book"></i>
+                     <span class="nav-link-text">Publications</span>
+                     </a>
+                  </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Team">
+                  <a class="nav-link" href="../Team/index.html">
+                     <i class="fa fa-fw fa-users"></i>
+                     <span class="nav-link-text">Team</span>
+                     </a>
+                  </li>
+               </ul>
+
+            <ul class="navbar-nav sidenav-toggler">
+
+               <li class="nav-item">
+                  <a class="nav-link text-center" id="sidenavToggler">
+                     <i class="fa fa-fw fa-angle-left"></i>
+                     </a>
+                  </li>
+               </ul>
+
+            <form class="form-inline my-2 my-md-0 mobile mobile2" action="../search.html">
+               <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input">
+               <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled>Search</button>
+               </form>
+            </div>
+         </nav>
+
+
+      <div class="content-wrapper">
+
+         <div class="container-fluid" align="center">
+
+            <fontST>Verification Bugs (VRF) Class </fontST>
+            </div>
+
+         <div class="container-fluid" align="left">
+
+
+            <p>
+               <FontS>Definition</FontS>
+            </p>
+            <ul>We define Verification Bugs (VRF) as:</ul>
+            <ul><span class="text-primary"><u></u></span><span class="text-primary"><i>The</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>software</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>does</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>not</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>properly</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>sign</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>data,</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>check</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>and</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>prove</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>source,</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>or</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>assure</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>data</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>is</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>not</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>altered</i></span>.</ul>
+            <ul>Note that "check" is for identity authentication, "prove" is for origin (signer) non-repudiation, and "not altered" is for integrity authentication.</ul>
+            <ul>See also the <a href="https://samate.nist.gov/BF/Classes/CRY.html" target="_blank">Model of Cryptographic Store or Transfer.</a></ul>
+            <p>
+               <FontS>Type</FontS>
+            </p>
+            <ul>High (semantic).</ul>
+            <p>
+               <FontS>Taxonomy</FontS>
+            </p>
+            <ul>Fig. 1 depicts VRF causes, attributes and consequences. </ul>
+            <ul><span class="text-primary"><u></u></span></ul>
+            <div align="center">
+               <p><a target="_blank" href="images/VRF.png"><img class="img-fluid" src="images/VRF.png"></a></p>
+               <p><em>Fig 1. Verification Bugs (VRF) Class <span class="text-info"> - click on image for detailed view</span>.</em></p>
+            </div>
+            <p>
+               <FontS>Attributes</FontS>
+            </p>
+            <ul><b>Verified</b><b> </b><b>Data</b> – Secret, Public.</ul>
+            <ul>This is the data that needs verification. It may be confidential or public. Secret
+               (confidential) data could be cryptographic hashes, secret keys, or keying material.
+               Public data could be signed contract, documents, or public keys.</ul>
+            <ul><b>Algorithm</b> – Hash Function + PRN, Message Authentication Code (MAC), Digital Signature.</ul>
+            <ul>Hash functions are used for integrity authentication. They may use PRN. MAC are symmetric key algorithms (one secret key per source/user), used for integrity
+               authentication, identity authentication. It needs authentication code generation,
+               source signs data, user gets tag for key and data, and verifies data by tag and key.
+               Digital Signature is an asymmetric key algorithm (two keys), used for integrity and
+               identity authentication, and origin (signer) non-repudiation. It needs key generation,
+               signature generation, and signature verification. MAC and Digital Signature use KMN
+               and recursively VRF.</ul>
+            <ul><b>Security</b><b> </b><b>Service</b> – Data Integrity Authentication, Identity Authentication, Origin (Signer) Non-Repudiation.</ul>
+            <ul>This is the security service the verification process failed. Integrity Authentication
+               is for data and keys. Identity Authentication and Origin Non-Repudiation are for source
+               authentication.</ul>
+            <p>
+               <FontS>Causes</FontS>
+            </p>
+            <ul>Weak key is a KMN fault.</ul>
+            <p>
+               <FontS>Sites</FontS>
+            </p>
+            <ul>VRF is a high level class, so sites do not apply.</ul>
+            <p>
+               <FontS>Related BF Classes</FontS>
+            </p>
+            <ul>BF classes related to VRF are: KMN, RND, ENC, ATN, IEX.</ul>
+            <p>
+               <FontS>Related CWEs and SFPs</FontS>
+            </p>
+            <ul>CWEs related to Verification (although some are not VRF) are: <a href="https://cwe.mitre.org/data/definitions/256.html" target="_blank">CWE-256</a>, <a href="https://cwe.mitre.org/data/definitions/293.html" target="_blank">CWE-293</a>, <a href="https://cwe.mitre.org/data/definitions/295.html" target="_blank">CWE-295</a>, <a href="https://cwe.mitre.org/data/definitions/296.html" target="_blank">CWE-296</a>, <a href="https://cwe.mitre.org/data/definitions/297.html" target="_blank">CWE-297</a>, <a href="https://cwe.mitre.org/data/definitions/347.html" target="_blank">CWE-347</a>, <a href="https://cwe.mitre.org/data/definitions/352.html" target="_blank">CWE-352</a>.</ul>
+            <ul>The related SFP cluster is <a href="https://apps.dtic.mil/docs/citations/ADB381215" target="_blank">SFP 17.2 Weak Cryptography under Primary Cluster: Cryptography</a></ul>
+            <p>
+               <FontS>Application</FontS>
+            </p>
+            <ul>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/VRF.html" target="_blank">here</a>.</ul>
+            <p>
+               <FontS>References</FontS>
+            </p>
+            <ul><small><a name="1">[1] Bojanova, I., Black, P. E., Yesha, Y., <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8234453" target="_blank">Cryptography Classes in Bugs Framework (BF): Encryption Bugs (ENC), Verification Bugs
+                        (VRF), and Key Management Bugs (KMN)</a>. IEEE Software Technology Conference (STC 2017), NIST, Gaithersburg, USA. September 25-28, 2017.</a></small></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+         <footer class="sticky-footer">
+
+            <div class="container">
+
+               <div class="text-center">
+                  <small>
+                     <p style="top: 9px; position:relative;" class=""><a href="https://www.nist.gov/disclaimer">Disclaimer Notice</a> &amp; <a href="https://www.nist.gov/privacy-policy"> Privacy Statement / Security Notice</a><br><a href="https://www.nist.gov/">NIST</a> is an Agency of the <a href="https://www.commerce.gov/">U.S. Dept. of Commerce</a></p></small>
+                  </div>
+               </div>
+            </footer>
+         <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fa fa-angle-up"></i>
+            </a>
+         <script src="../vendor/jquery/jquery.min.js"></script>
+         <script src="../vendor/popper/popper.min.js"></script>
+         <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+         <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+         <script src="../js/custom.js"></script>
+
+
+
+         </div>
+      </body>
 </html>

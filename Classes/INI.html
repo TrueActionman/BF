@@ -1,406 +1,529 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Initialization Fault (INI) Class</title>
+      <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
+      <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="../css/styles.css" rel="stylesheet">
+   </head>
+   <body xml:space="preserve" class="fixed-nav sticky-footer bg-lightt" id="page-top">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>Initialization Fault (INI) Class</title>
-  <!-- Bootstrap core CSS-->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
-<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Custom styles for this template-->
-  <link href="../css/styles.css" rel="stylesheet">
+      <nav class="navbar navbar-expand-lg navbar-light bg-lightt fixed-top" id="mainNav">
 
-</head>
 
-<body class="fixed-nav sticky-footer bg-lightt" id="page-top">
+         <div class="collapse navbar-collapse" id="navbarsExampleContainer">
 
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-lightt fixed-top" id="mainNav">
-
-          <div class="collapse navbar-collapse" id="navbarsExampleContainer">
             <div class="mr-auto">
-              <img class="" src="../images/nist.png"></img>
-    <img class="" src="../images/samate.png"></img>
+               <img class="" src="../images/nist.png">
+               <img class="" src="../images/samate.png">
 
-    <fontTT>The Bugs Framework (BF) <span class="remove">-</span> </fontTT> <fontSS> <span class="remove"><red>Software developers' and testers' "Best Friend"<red></span><fontSS>
-    </div>
-    <form class="form-inline my-2 my-md-0" action="../search.html">
-      <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input" >
-      <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled="disabled">Search</button>
-    </form>
-          </div></nav>
-      <!-- Navigation-->
+
+               <fontTT>The Bugs Framework (BF) <span class="remove">-</span> </fontTT>
+               <fontSS> <span class="remove">
+                     <red>Software developers' and testers' "Best Friend"</red></span></fontSS>
+               </div>
+
+            <form class="form-inline my-2 my-md-0" action="../search.html">
+               <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input">
+               <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled>Search</button>
+               </form>
+            </div>
+      </nav>
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
-        <div class="mobile ">
-          <img class="img-fluid" src="../images/nist.png"></img>
-        <img class="img-fluid" src="../images/samate.png"></img>
+
+         <div class="mobile ">
+            <img class="img-fluid" src="../images/nist.png">
+            <img class="img-fluid" src="../images/samate.png">
 
 
-      </div><span class="ml-auto mobile"><fontTT>The Bugs Framework (BF)</fontTT></span>
-      <span class="mr-auto mobile2"><fontTT>The Bugs Framework</fontTT></span>
-        <button class="navbar-toggler navbar-toggler-right ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-home"></i>
-            <span class="nav-link-text">Home</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents2">
-            <li>
-              <a href="../index.html">Welcome</a>
-            </li>
-            <li>
-              <a href="../Home/News and Events.html">News and Events</a>
-            </li>
-            <li>
-              <a href="../Home/Contact Info.html">Contact Info</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Background">
-          <a class="nav-link" href="../Background/index.html">
-            <i class="fa fa-fw fa-info"></i>
-            <span class="nav-link-text">Background</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Classes">
-          <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Classes</span>
-          </a>
-          <ul class="sidenav-second-level collapse show" id="collapseComponents3">
-            <li>
-              <a href="ARG.html"><fontL>ARG</fontL></a>
-            </li>
-            <li >
-              <a href="ATN.html"><fontL>ATN</fontL></a>
-            </li>
-            <li >
-              <a href="AUT.html"><fontL>AUT</fontL></a>
-            </li>
-            <li >
-              <a href="BOF.html">BOF</a>
-            </li>
-            <li>
-              <a href="CIF.html">CIF</a>
-            </li>
+            </div><span class="ml-auto mobile">
+            <fontTT>The Bugs Framework (BF)</fontTT></span>
+         <span class="mr-auto mobile2">
+            <fontTT>The Bugs Framework</fontTT></span>
+         <button class="navbar-toggler navbar-toggler-right ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents6" >
+         <div class="collapse navbar-collapse" id="navbarResponsive">
 
-                <span class="nav-link-text">ENC, KMN, VRF</span>
-              </a>
-            <ul class="sidenav-third-level collapse " id="collapseComponents6">
-              <li >
-                <a href="CRY.html" >Model</a>
-              </li>
-            <li >
-              <a href="ENC.html">ENC</a>
-            </li>
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
-            <li >
-              <a href="KMN.html">KMN</a>
-            </li>
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
+                  <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+                     <i class="fa fa-fw fa-home"></i>
+                     <span class="nav-link-text">Home</span>
+                     </a>
+
+                  <ul class="sidenav-second-level collapse" id="collapseComponents2">
+
+                     <li>
+                        <a href="../index.html">Welcome</a>
+                        </li>
+
+                     
+                     <li>
+                        <a href="../Home/Contact Info.html">Contact Info</a>
+                        </li>
+                     </ul>
+                  </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Background">
+                  <a class="nav-link" href="../Background/index.html">
+                     <i class="fa fa-fw fa-info"></i>
+                     <span class="nav-link-text">Background</span>
+                     </a>
+                  </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Classes">
+                  <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+                     <i class="fa fa-fw fa-table"></i>
+                     <span class="nav-link-text">Classes</span>
+                     </a>
+
+                     <ul class="sidenav-second-level collapse show" id="collapseComponents3">
+                       <li >
+                          <a href="ARC.html">
+                             ARC</a>
+                          </li>
+                        <li>
+                           <a href="ARG.html">
+                              <fontL>ARG</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="ATN.html">
+                              <fontL>ATN</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="AUT.html">
+                              <fontL>AUT</fontL></a>
+                           </li>
+
+                        <li >
+                           <a href="BOF.html">BOF</a>
+                           </li>
+
+                        <li>
+                           <a href="CIF.html">CIF</a>
+                           </li>
+
+                        <li>
+                           <a href="DEP.html">DEP</a>
+                           </li>
 
 
-            <li>
-              <a href="VRF.html">VRF</a>
-            </li>
-          </ul></li>
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents6">
 
-            <li>
-              <a href="FRS.html">FRS</a>
-            </li>
-            <li>
-              <a href="IEX.html">IEX</a>
-            </li>
-            <li class="active">
-              <a href="INI.html"><fontL>INI</fontL></a>
-            </li>
-            <li>
-              <a href="INJ.html">INJ</a>
-            </li>
-            <li >
-              <a href="MAL.html"><fontL>MAL</fontL></a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents7" >
+                              <span class="nav-link-text">ENC, KMN, VRF</span>
+                              </a>
 
-                <span class="nav-link-text">PRN, TRN </span>
-              </a>
-            <ul class="sidenav-third-level collapse " id="collapseComponents7">
-              <li >
-                <a href="RNModel.html" >Model</a>
-              </li>
-              <li >
-                <a href="PRN.html">PRN</a>
-              </li>
-            <li >
-              <a href="TRN.html">TRN</a>
-            </li>
+                           <ul class="sidenav-third-level collapse " id="collapseComponents6">
+
+                              <li>
+                                 <a href="CRY.html">Model</a>
+                                 </li>
+
+                              <li>
+                                 <a href="ENC.html">ENC</a>
+                                 </li>
+
+
+                              <li>
+                                 <a href="KMN.html">KMN</a>
+                                 </li>
 
 
 
-          </ul></li>
-            <li >
-              <a href="PTR.html"><fontL>PTR</fontL></a>
-            </li>
-
-            <li >
-              <a href="WOP.html"><fontL>WOP</fontL></a>
-            </li>
-          </ul>
-          </li>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-star"></i>
-            <span class="nav-link-text">Examples</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li >
-              <a href="../Examples/ARG.html"><fontL>ARG</fontL></a>
-            </li>
-            <li >
-              <a href="../Examples/ATN.html"><fontL>ATN</fontL></a>
-            </li>
-            <li >
-              <a href="../Examples/AUT.html"><fontL>AUT</fontL></a>
-            </li>
-            <li >
-              <a href="../Examples/BOF.html">BOF</a>
-            </li>
-            <li>
-              <a href="../Examples/CIF.html">CIF</a>
-            </li>
-
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents8" >
-
-                <span class="nav-link-text">ENC, KMN, VRF</span>
-              </a>
-            <ul class="sidenav-third-level collapse " id="collapseComponents8">
-
-
-            <li >
-              <a href="../Examples/ENC.html">ENC</a>
-            </li>
-
-            <li >
-              <a href="../Examples/KMN.html">KMN</a>
-            </li>
-
-
-            <li>
-              <a href="../Examples/VRF.html">VRF</a>
-            </li>
-          </ul></li>
-
-            <li>
-              <a href="../Examples/FRS.html">FRS</a>
-            </li>
-            <li >
-              <a href="../Examples/INI.html"><fontL>INI</fontL></a>
-            </li>
-            <li>
-              <a href="../Examples/INJ.html">INJ</a>
-            </li>
-            <li >
-              <a href="../Examples/MAL.html"><fontL>MAL</fontL></a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents9" >
-
-                <span class="nav-link-text">PRN, TRN </span>
-              </a>
-            <ul class="sidenav-third-level collapse " id="collapseComponents9">
-
-              <li >
-                <a href="../Examples/PRN.html">PRN</a>
-              </li>
-            <li >
-              <a href="../Examples/TRN.html">TRN</a>
-            </li>
+                              <li>
+                                 <a href="VRF.html">VRF</a>
+                                 </li>
+                              </ul>
+                        </li>
 
 
 
-          </ul></li>
-            <li >
-              <a href="../Examples/PTR.html"><fontL>PTR</fontL></a>
-            </li>
 
-            <li >
-              <a href="../Examples/WOP.html"><fontL>WOP</fontL></a>
-            </li>
-          </ul>
-        </li>
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="IEX">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents8">
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-lightbulb-o"></i>
-            <span class="nav-link-text">Enlightenment</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents4">
-            <li>
-              <a href="../Enlightenment/Definitions.html">Definitions</a>
-            </li>
-            <li>
-              <a href="../Enlightenment/otherclassifications.html">Other Classifications</a>
-            </li>
+                              <span class="nav-link-text">IEX</span>
+                              </a>
 
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Publications">
-          <a class="nav-link" href="../Publications/index.html">
-            <i class="fa fa-fw fa-book"></i>
-            <span class="nav-link-text">Publications</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Team">
-          <a class="nav-link" href="../Team/index.html">
-            <i class="fa fa-fw fa-users"></i>
-            <span class="nav-link-text">Team</span>
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-md-0 mobile mobile2" action="../search.html">
-        <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input" >
-        <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled="disabled">Search</button>
-      </form>
-    </div>
-  </nav>
+                           <ul class="sidenav-third-level collapse " id="collapseComponents8">
 
-  <div class="content-wrapper">
-    <div class="container-fluid" align="center">
+                              <li>
+                                 <a href="IEXModel.html">Model</a>
+                                 </li>
 
-        <fontST>Initialization Fault (INI) Class</fontST>
-    </div>
-<div class="container-fluid" align="left">
-  <ul>To be added</ul>
-    <!--<p><fontS>Definition</fontS></p>
-    <ul class="text-primary">The software accesses through an array a memory location that is outside the boundaries of that array.</ul></p>
-    <ul><p><em>Often referred to as a "buffer," an array is a contiguously allocated set of objects <a href="#ref">[1]</a>, called elements. An array has a definite size, that is, a definite number of elements are allocated to it. The software should not use the array name to access anything outside the boundary of the allocated elements. The elements are all of the same data type and are accessed by integer offsets.</p>
-    <p>If the software can utilize the array name (more generally, array handle) to access any memory other than the allocated objects, it falls into this class.</p>
-    <p>An array could be pictured as follows:</ul></em>
-    <div align="center"><p><img class="img-fluid" src="images/array.png"/></p></div>
-    <p><fontS>Type</fontS></p>
-    <ul>Low-level, e.g., language dependent.</ul></p>
-    <p><fontS>Taxonomy</fontS></p>
-    <ul>The causes, attributes and consequences of the Buffer Overflow (BOF) class are depicted and explained below.</ul></p>
-    <div align="center"><p><a target="_blank" href="images/BOF.png"><img class="img-fluid" src="images/BOF.png"></a></p>
-        <p><em>Buffer Overflow (BOF) class <span class="text-info"> - click on image for detailed view</span>.</em></p></div>
-    <p><fontS>Attributes</fontS></p>
-    <ul><li><strong><u>Access</u></strong> - Read, Write.</li>
-            <div align="center"><p><img class="img-fluid" src="images/Access.png"/></p></div>
-        <li><strong>Boundary</strong> - Below, Above.</li>
-    <p><em>Which end of the array is violated.</em></p>
-<p><em>Synonyms for boundary are</em> side, bound <em>or</em> end.</p>
-<p><em>The terms </em>before, under <em>or</em> lower <em>may be used instead of below. The terms </em>after, over <em>or</em> upper <em>may be used instead of above. The term </em>outside<em> indicates that the boundary is unknown or it doesn't matter.</em></p>
-            <div align="center"><p><img class="img-fluid" src="images/Boundary.png"/></p></div>
-        <li><strong>Location</strong> - Heap, Stack.</li>
-    <em><p>What part of memory the array is allocated in. It may matter since violations in the stack may affect program execution flow, while violations in the heap typically only affect data values. </p>
-<p>Other compilers and operating system may have other locations that are significant. For instance, other locations are BSS (uninitialized data), Data (initialized) and Code (text).</p></em></li>
-            <div align="center"><p><img class="img-fluid" src="images/Location.png"/></p></div>
-        <li><strong>Magnitude</strong> - Small, Moderate, Far.</li>
-    <p><em>How far outside the boundary the violation extends. Small means just barely outside, e.g. one to a few bytes, moderate means is from eight bytes to dozens and far is hundreds, thousands or more.</p></em></li>
-            <div align="center"><p><img class="img-fluid" src="images/Magnitude.png"/></p></div>
-        <li><strong>Data Size</strong> - Little, Some, Huge.</li>
-    <em><p>How much data is accessed beyond the boundary.</p>
-<p>As in magnitude, these distinctions are important in some cases. For instance, Heartbleed <a href="#ref">[2]</a> might not have been a severe problem if it just exfiltrated a little data. The fact that it may exfiltrate a huge amount of data greatly increases the chance that very important information will be leaked.</p></em></li>
-            <div align="center"><p><img class="img-fluid" src="images/DataSize.png"/></p></div>
-        <li><strong>Excursion</strong> - Continuous, Discrete.</li>
-    <p><em>Whether the violating access was preceded by consecutive accesses of elements within the array (continuous) or the violation was just accessing outside of the array (discrete).</p>
-<p>Synonym for excursion is span.</p>
-<p>Typically string accesses or array copies handle a continuous set of array elements, while a vagrant array index only reads or writes one element.</p></em></li></ul>
-            <div align="center"><p><img class="img-fluid" src="images/Excursion.png"/></p></div>
-<ul><p>Kratkiewicz <a href="#ref">[3]</a> defines reach (which we named excursion) as follows:</p>
-<ul>"A continuous overflow accesses consecutive elements within the buffer before overflowing past the bounds, whereas a discrete overflow jumps directly out of the buffer."</ul></p>
-<p>For instance, if an array <code>a</code> has 10 elements, then:</p>
-<ul><p>accessing sequentially (most probably through a loop) ..., <code>a[7], a[8], a[9], a[10]</code> -- gives us a continuous excursion to <code>a[10]</code> out of the array</p>
-<p>accessing a[10] directly without sequentially accessing previous array elements -- gives us discrete excursion to a[10] out of the array.</ul>
-<p>The step for sequential access of elements could be greater than one. That is, it may be <code>a[6], a[8], a[10]</code>, which is continuous.</p>
-<p>Access before the beginning would be, e.g., <code>a[2], a[1], a[0], a[-1]</code>.</p>
-<p>"Continuous" means that the program constrains accesses to always be consecutive. CVE-201-1773 Chrome WebCore toAlphabeticOrNumeric() converts a number to a sequence of characters with the following loop:</p>
-<ul><pre><code>while ((numberShadow /= sequenceSize) > 0) {</p>
-<ul><p>letters[lettersSize - ++length] = sequence[numberShadow % sequenceSize - 1];</ul>
-<p>}</code></pre></ul>
-(<code>numberShadow</code> is the number to be converted.) The array <code>sequence</code> is accessed "at random", that is, depending on the input. There may be an input that leads to accessing <code>sequence[1]</code>, then <code>sequence[0]</code>, then <code>sequence[-1]</code>. This does not constitute continuous excursion. It is discrete excursion.</ul>
-     <ul><em>Any of the attributes may be "any," "don't care" or "unknown." For instance, strict bounds checking is equally  effective regardless of the location, magnitude, data size or excursion of the violation. Keeping return addresses in a separate stack  helps prevent problems occurring from write accesses when the array location is the stack.</em></ul>
-    <p><fontS>Causes</fontS></p>
-    <ul><p><strong>Data Exceeds Array</strong></p>
-        <li>Array Too Small</li>
-        <p><em>The array was allocated smaller than it should have been. This may occur because the programmer leaves out a factor, like the size of a header, uses the wrong variable, or forgets room for a null to terminate a string.</em></p>
-        <li>Too Much Data</li>
-        <p><em>More data is accessed than was anticipated. This may occur because the string is not NULL terminated or the amount of data is calculated differently than the size of the buffer (e.g. heartbleed).</em></p>
-    <p><em>Exposition:</em> When we examine code, we can say in some cases that the programmer allocated the array too small, such as in CVE-2015-0235 - Ghost. The code computes the size of a buffer needed, but leaves out one factor, which makes the buffer four bytes short. In other cases, too much data was accessed, such as in CVE-2014-0160 - Heartbleed. A string was stored in an array, but instead of computing the length of the string, the code used a length from the input, which was not checked against the string. This can cause the code to read far more from the buffer than was allocated. In both cases, the size of the data exceeds the size of the array. Just looking at the code, it may be difficult to determine which case it is - it needs semantic content. That's why the two are sub-causes of one cause.</p>
-    <p><strong>Wrong Index / Pointer out of Range</strong></p>
-    <p><strong>Contributing Causes</strong></p>
-    <p>Data Exceeds Array may be caused by an Input [that is] Not Checked Properly [REF] or by an Incorrect Calculation [REF]. The specific cases of Data Exceeds Array are Array Too Small and Too Much Data. Too Much Data may be caused by No NULL Termination [REF]. Wrong Index [or] Pointer Out of Range may be caused by Incorrect Calculation, too, or by an Incorrect Conversion [REF].</p>
-    <p>The specific cases of Incorrect Calculation are Missing Factor, Incorrect Argument, Off By One, Integer Coercion, Integer Overflow Wrap-around and Integer Underflow.
-</ul></p>
-    <p><fontS>Consequences</fontS></p>
-    <ul>The graph of consequences shows what could happen due to the fault. The ACI cluster of consequences is the same in all classes where it appears. "Resource Exhaustion" refers to Memory and CPU.</em></ul></p>
-    <p><fontS>Sites</fontS></p>
-    <ul>BOF may occur at the use of <code>[ ]</code> or the use of unary <code>*</code> operator with arrays in the C language. Sites also include the use of many string library functions, such as <code>strcpy()</code> or <code>strcat()</code>.</ul>
-    <p><fontS>Related CWEs, SFP and ST</fontS></p>
-        <ul><li>CWEs related to BOF are
-                <a target="_blank" href="https://cwe.mitre.org/data/definitions/456.html">CWE-456</a>,
-                <a target="_blank" href="https://cwe.mitre.org/data/definitions/457.html">CWE-457</a>,
-                <a target="_blank" href="https://cwe.mitre.org/data/definitions/665.html">CWE-665</a>,
-                <a target="_blank" href="https://cwe.mitre.org/data/definitions/824.html">CWE-824</a>,
-                <a target="_blank" href="https://cwe.mitre.org/data/definitions/908.html">CWE-909</a>.
-                </li>
-        <li>The only related SFP cluster is <a target="_blank" href="https://apps.dtic.mil/docs/citations/ADB381215">SFP8 Faulty Buffer Access under Primary Cluster: Memory Access</a>.</li>
-        <li>The corresponding ST is the <a target="_blank" href="http://faculty.ist.unomaha.edu/rgandhi/st/bufferoverflowtemplate.pdf">Buffer Overflow Semantic Template</a>.</li></ul>
-    <p><fontS>Application</fontS></p>
-    <ul>Application examples are provided <a href="../Examples/BOF.html" target="_blank">here</a>.</ul>
-    <p><fontS><a name="ref">References</a></fontS></p>
-    <small><ul>[1] ISO/IEC 9899:2011 programming languages - C, Committee Draft-April 12, 2011 N1570. The International Organization for Standardization and the International Electrotechnical Commission (ISO/IEC) Joint Technical Committee JTC 1, Information technology, Subcommittee SC 22, Programming languages, their environments and system software interfaces. Working Group WG 14 - C. Tech. Rep. 2011.</ul>
-    <ul>[2] chromium, Contents of /branches/WebKit/375/WebCore/rendering/RenderListMarker.cpp. <a target="_blank" href="https://src.chromium.org/viewvc/chrome/branches/WebKit/375/WebCore/rendering/RenderListMarker.cpp?annotate=48100#l104">Revision 48100</a>.</ul>
-    <ul>[3] Kendra Kratkiewicz. <a target="_blank" href="https://www.ll.mit.edu/mission/cybersec/publications/publication-files/full_papers/KratkiewiczThesis.pdf">Evaluating Static Analysis Tools for Detecting Buffer Overflows in C Code</a>. Master's thesis. Harvard University, Cambridge, MA. March 2005.</ul></small>
-  </div>-->
-  <footer class="sticky-footer">
-    <div class="container">
-      <div class="text-center">
-        <small><p  style="top: 9px; position:relative;" class=""><a href="https://www.nist.gov/disclaimer">Disclaimer Notice</a> & <a href="https://www.nist.gov/privacy-policy"> Privacy Statement / Security Notice</a><br><a href="https://www.nist.gov/">NIST</a> is an Agency of the <a href="https://www.commerce.gov/">U.S. Dept. of Commerce</a></p></small>
-      </div>
-    </div>
-  </footer>
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fa fa-angle-up"></i>
-  </a>
+                              <li>
+                                 <a href="IEX.html">IEX</a>
+                                 </li>
 
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/popper/popper.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-  <!-- Core plugin JavaScript-->
-  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-  <!-- Custom scripts for all pages-->
-  <script src="../js/custom.js"></script>
-  <!-- Custom scripts for this page-->
-  <!-- Toggle between fixed and static navbar-->
 
 
-</div>
-</body>
+                              </ul>
+                        </li>
 
+                        <li class="active">
+                           <a href="INI.html">INI</a>
+                           </li>
+
+                        <li>
+                           <a href="INJ.html">INJ</a>
+                           </li>
+
+                        <li>
+                           <a href="LOP.html">LOP</a>
+                           </li>
+
+                        <li>
+                           <a href="MAL.html">
+                              <fontL>MAL</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="PAR.html">PAR</a>
+                           </li>
+
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents7">
+
+                              <span class="nav-link-text">PRN, TRN </span>
+                              </a>
+
+                           <ul class="sidenav-third-level collapse " id="collapseComponents7">
+
+                              <li>
+                                 <a href="RNModel.html">Model</a>
+                                 </li>
+
+                              <li>
+                                 <a href="PRN.html">PRN</a>
+                                 </li>
+
+                              <li>
+                                 <a href="TRN.html">TRN</a>
+                                 </li>
+
+
+
+                              </ul>
+                        </li>
+
+                        <li>
+                           <a href="PTR.html">
+                              <fontL>PTR</fontL></a>
+                           </li>
+
+
+                        <li>
+                           <a href="WOP.html">
+                              <fontL>WOP</fontL></a>
+                           </li>
+                        </ul>
+                     </li>
+
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
+                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-star"></i>
+                        <span class="nav-link-text">Examples</span>
+                        </a>
+
+                     <ul class="sidenav-second-level collapse" id="collapseComponents">
+
+                        <li>
+                           <a href="../Examples/ARG.html">
+                              <fontL>ARG</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/ATN.html">
+                              <fontL>ATN</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/AUT.html">
+                              <fontL>AUT</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/BOF.html">BOF</a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/CIF.html">CIF</a>
+                           </li>
+
+
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents8">
+
+                              <span class="nav-link-text">ENC, KMN, VRF</span>
+                              </a>
+
+                           <ul class="sidenav-third-level collapse " id="collapseComponents8">
+
+
+                              <li>
+                                 <a href="../Examples/ENC.html">ENC</a>
+                                 </li>
+
+
+                              <li>
+                                 <a href="../Examples/KMN.html">KMN</a>
+                                 </li>
+
+
+
+                              <li>
+                                 <a href="../Examples/VRF.html">VRF</a>
+                                 </li>
+                              </ul>
+                        </li>
+
+
+
+
+                        <li>
+                           <a href="../Examples/IEX.html">IEX</a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/INI.html">
+                              <fontL>INI</fontL></a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/INJ.html">INJ</a>
+                           </li>
+
+                        <li>
+                           <a href="../Examples/MAL.html">
+                              <fontL>MAL</fontL></a>
+                           </li>
+
+                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents9">
+
+                              <span class="nav-link-text">PRN, TRN </span>
+                              </a>
+
+                           <ul class="sidenav-third-level collapse " id="collapseComponents9">
+
+
+                              <li>
+                                 <a href="../Examples/PRN.html">PRN</a>
+                                 </li>
+
+                              <li>
+                                 <a href="../Examples/TRN.html">TRN</a>
+                                 </li>
+
+
+
+                              </ul>
+                        </li>
+
+                        <li>
+                           <a href="../Examples/PTR.html">
+                              <fontL>PTR</fontL></a>
+                           </li>
+
+
+                        <li>
+                           <a href="../Examples/WOP.html">
+                              <fontL>WOP</fontL></a>
+                           </li>
+                        </ul>
+                     </li>
+
+
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
+                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-lightbulb-o"></i>
+                        <span class="nav-link-text">Enlightenment</span>
+                        </a>
+
+                     <ul class="sidenav-second-level collapse" id="collapseComponents4">
+                       <li>
+                          <a href="../Enlightenment/Attributes.html">Attributes</a>
+                          </li>
+                        <li>
+                           <a href="../Enlightenment/Definitions.html">Definitions</a>
+                           </li>
+
+                        <li>
+                           <a href="../Enlightenment/otherclassifications.html">Other Classifications</a>
+                           </li>
+
+                        </ul>
+                     </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Publications">
+                  <a class="nav-link" href="../Publications/index.html">
+                     <i class="fa fa-fw fa-book"></i>
+                     <span class="nav-link-text">Publications</span>
+                     </a>
+                  </li>
+
+               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Team">
+                  <a class="nav-link" href="../Team/index.html">
+                     <i class="fa fa-fw fa-users"></i>
+                     <span class="nav-link-text">Team</span>
+                     </a>
+                  </li>
+               </ul>
+
+            <ul class="navbar-nav sidenav-toggler">
+
+               <li class="nav-item">
+                  <a class="nav-link text-center" id="sidenavToggler">
+                     <i class="fa fa-fw fa-angle-left"></i>
+                     </a>
+                  </li>
+               </ul>
+
+            <form class="form-inline my-2 my-md-0 mobile mobile2" action="../search.html">
+               <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input">
+               <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled>Search</button>
+               </form>
+            </div>
+         </nav>
+
+
+      <div class="content-wrapper">
+
+         <div class="container-fluid" align="center">
+
+            <fontST>Initialization Fault (INI) Class</fontST>
+            </div>
+
+         <div class="container-fluid" align="left">
+
+
+            <p>
+               <FontS>Definition</FontS>
+            </p>
+            <ul>We define Initialization Fault (INI) as:</ul>
+            <ul><i></i><span class="text-primary"><u></u></span><span class="text-primary"><i>The software uses an incorrect value because a resource was not properly initialized</i></span><span class="text-primary"><i>.</i></span></ul>
+            <p>
+               <FontS>Type</FontS>
+            </p>
+            <ul>Low (language-related).</ul>
+            <p>
+               <FontS>Taxonomy</FontS>
+            </p>
+            <ul>Fig. 1 depicts INI causes, attributes and consequences. </ul>
+            <ul><span class="text-primary"><u></u></span>&lt;&lt;graph to be added&gt;&gt;</ul>
+            <div align="center">
+               <p><a target="_blank" href="images/INI.png"><img class="img-fluid" src="images/INI.png"></a></p>
+               <p><em>Fig 1. Initialization Fault (INI) Class<span class="text-info"> - click on image for detailed view</span>.</em></p>
+            </div>
+            <p>
+               <FontS>Attributes</FontS>
+            </p>
+            <ul>The attributes of INI are: </ul>
+            <ul><u><b>Reso</b></u><u><b>urce</b></u> – Variable, Field, Member, Connection, Array, Pointer, etc.</ul>
+            <ul>This is the thing being initialized. It could be a variable, a member of a structure or record, parts of an array, a pointer or reference,
+               disk file, entropy pool, network connection, etc.</ul>
+            <ul><u><b>Value</b></u> – Small, Medium, Large.</ul>
+            <ul>This indicates the incorrect value. It could be several bytes or even as small as one byte of memory; or as large as an entire database.</ul>
+            <ul><u><b>Problem</b></u> – Uninitialized, Improperly Initialized.</ul>
+            <ul>This indicates the problem leading to use of incorrect value. It covers both not initialized at all and not initialized correctly. The resource may
+               not be initialized at all for many reasons: the programmer neglected to write initialization
+               at all, program execution followed an unexpected path, the initialization routine
+               was not called, etc. Not initialized correctly includes initialized with a value that
+               leads to a security concern, see <a href="https://cwe.mitre.org/data/definitions/457.html" target="_blank">CWE-457</a>. </ul>
+            <ul>Strings in C must have a NULL at the end. Creating a C string without a terminating
+               NULL is a particular danger.</ul>
+            <p>
+               <FontS>Causes</FontS>
+            </p>
+            <ul><span class="text-primary"><u></u></span>&lt;&lt;content to be added&gt;&gt;</ul>
+            <p>
+               <FontS>Consequences</FontS>
+            </p>
+            <ul><span class="text-primary"><u></u></span>&lt;&lt;content to be added&gt;&gt;</ul>
+            <p>
+               <FontS>Related BF Classes</FontS>
+            </p>
+            <ul>BF classes related to INI are: &lt;&lt;content to be added&gt;&gt;.</ul>
+            <p>
+               <FontS>Related CWEs, SFP, and SEI/CERT Rules &amp; Recommendations</FontS>
+            </p>
+            <ul>CWEs related to INI: <a href="https://cwe.mitre.org/data/definitions/456.html" target="_blank">CWE 456</a>, <a href="https://cwe.mitre.org/data/definitions/457.html" target="_blank">CWE-457</a>, <a href="https://cwe.mitre.org/data/definitions/665.html" target="_blank">CWE 665</a>, <a href="https://cwe.mitre.org/data/definitions/824.html" target="_blank">CWE 824</a>, <a href="https://cwe.mitre.org/data/definitions/908.html" target="_blank">CWE 908</a>, <a href="https://cwe.mitre.org/data/definitions/909.html" target="_blank">CWE 909</a>. </ul>
+            <ul>The only related SFP cluster is &lt;&lt;content to be added&gt;&gt;.</ul>
+            <ul>Related SEI/CERT Rules &amp; Recommendations are MEM09-C Do not assume memory allocation
+               routines initialize memory.</ul>
+            <p>
+               <FontS>Application</FontS>
+            </p>
+            <ul>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/INI.html" target="_blank">here</a>.</ul>
+            <p>
+               <FontS>References</FontS>
+            </p>
+            <ul><small><a name="1">[1] I. Bojanova, P. E. Black, Y. Yesha, and Y. Wu, “The Bugs Framework (BF): A Structured approach to express bugs”, Proceedings of IEEE International Conference on Software Quality, Reliability and Security (QRS), 2016, , pp. 175-182.</a></small></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+         <footer class="sticky-footer">
+
+            <div class="container">
+
+               <div class="text-center">
+                  <small>
+                     <p style="top: 9px; position:relative;" class=""><a href="https://www.nist.gov/disclaimer">Disclaimer Notice</a> &amp; <a href="https://www.nist.gov/privacy-policy"> Privacy Statement / Security Notice</a><br><a href="https://www.nist.gov/">NIST</a> is an Agency of the <a href="https://www.commerce.gov/">U.S. Dept. of Commerce</a></p></small>
+                  </div>
+               </div>
+            </footer>
+         <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fa fa-angle-up"></i>
+            </a>
+         <script src="../vendor/jquery/jquery.min.js"></script>
+         <script src="../vendor/popper/popper.min.js"></script>
+         <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+         <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+         <script src="../js/custom.js"></script>
+
+
+
+         </div>
+      </body>
 </html>

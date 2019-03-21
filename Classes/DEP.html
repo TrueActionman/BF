@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <title>Encryption/Decryption Bugs (ENC) Class</title>
+      <title>Dereference Erroneous (DEP) Pointer</title>
       <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
@@ -117,24 +117,24 @@
                            <a href="CIF.html">CIF</a>
                            </li>
 
-                        <li>
+                        <li class="active">
                            <a href="DEP.html">DEP</a>
                            </li>
 
 
                         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-                           <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents6">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents6">
 
                               <span class="nav-link-text">ENC, KMN, VRF</span>
                               </a>
 
-                           <ul class="sidenav-third-level collapse show" id="collapseComponents6">
+                           <ul class="sidenav-third-level collapse " id="collapseComponents6">
 
                               <li>
                                  <a href="CRY.html">Model</a>
                                  </li>
 
-                              <li class="active">
+                              <li>
                                  <a href="ENC.html">ENC</a>
                                  </li>
 
@@ -406,7 +406,7 @@
 
          <div class="container-fluid" align="center">
 
-            <fontST>Encryption/Decryption Bugs (ENC) Class</fontST>
+            <fontST>Dereference Erroneous (DEP) Pointer</fontST>
             </div>
 
          <div class="container-fluid" align="left">
@@ -415,68 +415,93 @@
             <p>
                <FontS>Definition</FontS>
             </p>
-            <ul><i></i>We define Encryption/Decryption Bugs (ENC) as:</ul>
-            <ul><i>Encryption</i><i> </i><i>Bugs:</i><i> </i><span class="text-primary"><i>The</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>software</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>does</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>not</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>properly</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>transform</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>sensitive</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>data</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>(plaintext)</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>into</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>unintelligible</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>form</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>(ciphertext)</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>using</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>a</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>cryptographic</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>algorithm</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>and</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>key(s)</i></span>.</ul>
-            <ul>Decryption Bugs: <span class="text-primary"><i>The</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>software</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>does</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>not</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>properly</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>transform</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>ciphertext</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>into</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>plaintext</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>using</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>a</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>cryptographic</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>algorithm</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>and</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>key(s)</i></span>.</ul>
-            <ul>Note that "transform" is for confidentiality.</ul>
-            <ul>See also the <a href="https://samate.nist.gov/BF/Classes/CRY.html" target="_blank">Model of Cryptographic Store or Transfer.</a></ul>
+            <ul>We define Dereference Erroneous Pointer (DEP) as:</ul>
+            <ul><i></i><span class="text-primary"><u></u></span><span class="text-primary"><i>Software produces a faulty value because of pointer misuse</i></span>.</ul>
+            <ul>A pointer should refer to a particular place in memory consistent with the type of
+               the pointer. If the value of the pointer ("address") is wrong, then dereferencing
+               the pointer may return a garbage value. (The execution engine may catch such an invalid
+               dereference.) Possible reasons (causes?) that the value is wrong are: </ul>
+            <ul>NULL</ul>
+            <ul>
+               <ul>
+                  <li>Pointer scaling arithmetic was done wrong</li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Arithmetic based on assumed data or memory layout</li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Other incorrect math, such as ARC or WOP</li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Dereference of an address supplied by an untrustworthy source</li>
+               </ul>
+            </ul>
+            <ul>Note: Passing an erroneous pointer to <code>free()</code> or <code>realloc</code><code>()</code> is MAL, not DEP. </ul>
+            <ul>Note: Use after free is MAL, not DEP. One could argue that the pointer was once valid
+               (not erroneous), but no longer is.</ul>
+            <ul>Note: Use of uninitialized pointer is INI, not DEP. </ul>
             <p>
                <FontS>Type</FontS>
             </p>
-            <ul>High (semantic).</ul>
+            <ul>Low (language-dependent)</ul>
             <p>
                <FontS>Taxonomy</FontS>
             </p>
-            <ul>Fig. 1 depicts ENC causes, attributes and consequences. </ul>
-            <ul><span class="text-primary"><u></u></span></ul>
+            <ul>Fig. 1 depicts DEP causes, attributes, and consequences. </ul>
+            <ul><span class="text-primary"><u></u></span>&lt;&lt;graph to be added&gt;&gt;</ul>
             <div align="center">
-               <p><a target="_blank" href="images/ENC.png"><img class="img-fluid" src="images/ENC.png"></a></p>
-               <p><em>Fig 1. Encryption/Decryption Bugs (ENC) Class<span class="text-info"> - click on image for detailed view</span>.</em></p>
+               <p><a target="_blank" href="images/DEP.png"><img class="img-fluid" src="images/DEP.png"></a></p>
+               <p><em>Dereference Erroneous (DEP) Pointer<span class="text-info"> - click on image for detailed view</span>.</em></p>
             </div>
             <p>
                <FontS>Attributes</FontS>
             </p>
-            <ul><b>Sensitive</b><b> </b><b>Data</b> – Credentials, System Data, State Data, Cryptographic Data, Digital Documents.</ul>
-            <ul>This is secret (confidential) data. Credentials include Password, Token, Smart Card, Digital Certificate, Biometrics (fingerprint, hand configuration, retina, iris, voice.) System Data could be configurations, logs, Web usage. Cryptographic Data is hashes, keys, keying material. Keying material is cryptographic keys, initialization vectors, shared secrets, domain parameters, random bits (seeds, salts, nonces).</ul>
-            <ul><b>Data</b><b> </b><b>State</b><b> </b>– Stored, Transferred.</ul>
-            <ul>This reflects if data is in rest or use, or if data is in transit. Secure store is
-               needed for data that is in rest or use from files (e.g. ini, temp, configuration, log server, debug, cleanup, email attachment, login buffer,
-               executable, backup, core dump, access control list, private data index), directories
-               (Web root, FTP root, CVS repository), registry, cookies, source code &amp; comments, GUI,
-               environmental variables. Secure transfer is needed also for data in transit between
-               processes or over a network.</ul>
-            <ul><b>Algorithm</b><b> </b>– Symmetric, Asymmetric.</ul>
-            <ul>This is the key encryption scheme used to securely store/transfer sensitive data. Symmetric (secret) key algorithms (e.g. Serpent, Blowfish) use one shared key. Asymmetric (public) key algorithms (e.g. Diffie-Hellman, RSA) use two keys (public, private).</ul>
-            <ul><b>Security</b><b> </b><b>Service(s)</b><b> </b>– Confidentiality (and in some modes of encryption Integrity and Identity Authentication).</ul>
-            <ul>This is the security service that was failed by the encryption process. Confidentiality is the main security service provided by encryption. Those marked with ‘~’ are only for some specific modes of encryption.</ul>
-            <p>
-               <FontS> Causes</FontS>
-            </p>
-            <ul>In the graph of causes, modification of algorithm is remove/change or add a cryptographic step. Improper algorithm or step could be missing, inadequate, weak, risky/broken. Insecure mode of operation leads to weak encryption algorithm. Consequences</ul>
-            <p>
-               <FontS>Sites</FontS>
-            </p>
-            <ul>ENC is a high level class, so sites do not apply.</ul>
+            <ul>The attributes of DEP are: </ul>
+            <ul><u><b>Fault</b></u> – </ul>
+            <ul>
+               <ul>
+                  <li>NPD (NULL Pointer Dereference)</li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Incorrectly computed pointer is dereferenced </li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Untrusted Pointer Dereference</li>
+               </ul>
+            </ul>
+            <ul><b>Access</b> – Read, Write.</ul>
+            <ul>This is &lt;&lt;content to be added&gt;&gt;.</ul>
             <p>
                <FontS>Related BF Classes</FontS>
             </p>
-            <ul>BF classes related to ENC are: <a href="https://samate.nist.gov/BF/Classes/KMN.html" target="_blank">KMN</a>, RND, and IEX.</ul>
+            <ul>BF classes related to DEP are: PAR, &lt;&lt;content to be added&gt;&gt;.</ul>
             <p>
-               <FontS>Related CWEs and SFP</FontS>
+               <FontS>Related CWEs, SFP, SEI/CERT Rules &amp; Recommendations, etc.</FontS>
             </p>
-            <ul>CWEs related to Encryption (although some are not ENC) are: <a href="https://cwe.mitre.org/data/definitions/256.html" target="_blank">CWE-256</a>, <a href="https://cwe.mitre.org/data/definitions/257.html" target="_blank">CWE-257</a>, <a href="https://cwe.mitre.org/data/definitions/261.html" target="_blank">CWE-261</a>, <a href="https://cwe.mitre.org/data/definitions/311.html" target="_blank">CWE-311</a>, <a href="https://cwe.mitre.org/data/definitions/312.html" target="_blank">CWE-312</a>, <a href="https://cwe.mitre.org/data/definitions/313.html" target="_blank">CWE-313</a>, <a href="https://cwe.mitre.org/data/definitions/314.html" target="_blank">CWE-314</a>, <a href="https://cwe.mitre.org/data/definitions/315.html" target="_blank">CWE-315</a>, <a href="https://cwe.mitre.org/data/definitions/316.html" target="_blank">CWE-316</a>, <a href="https://cwe.mitre.org/data/definitions/317.html" target="_blank">CWE-317</a>, <a href="https://cwe.mitre.org/data/definitions/318.html" target="_blank">CWE-318</a>, <a href="https://cwe.mitre.org/data/definitions/325.html" target="_blank">CWE-325</a>, <a href="https://cwe.mitre.org/data/definitions/326.html" target="_blank">CWE-326</a>, <a href="https://cwe.mitre.org/data/definitions/327.html" target="_blank">CWE-327</a>, <a href="https://cwe.mitre.org/data/definitions/329.html" target="_blank">CWE-329</a>, <a href="https://cwe.mitre.org/data/definitions/780.html" target="_blank">CWE-780</a>.</ul>
-            <ul>Related SFP clusters are <a href="https://apps.dtic.mil/docs/citations/ADB381215" target="_blank">SFP 17.1 Broken Cryptography and SFP 17.2 Weak Cryptography under Primary Cluster:
-                  Cryptography</a>.</ul>
+            <ul>CWEs related to IEX are: <a href="https://cwe.mitre.org/data/definitions/188.html" target="_blank">CWE-188</a>, <a href="https://cwe.mitre.org/data/definitions/476.html" target="_blank">CWE-476</a>,  <a href="https://cwe.mitre.org/data/definitions/468.html" target="_blank">CWE-468</a>,  <a href="https://cwe.mitre.org/data/definitions/588.html" target="_blank">CWE-588</a>,  <a href="https://cwe.mitre.org/data/definitions/690.html" target="_blank">CWE-690</a>,  <a href="https://cwe.mitre.org/data/definitions/706.html" target="_blank">CWE-706</a>, <a href="https://cwe.mitre.org/data/definitions/822.html" target="_blank">CWE-822</a>. </ul>
+            <ul>Note that <a href="https://cwe.mitre.org/data/definitions/395.html" target="_blank">CWE-395</a> is not related to DEP.</ul>
+            <ul>Related SFPs are Primary Cluster: Memory Access (aka CWE-890) and SFP Secondary Cluster: Faulty Pointer Use (aka CWE-971).</ul>
+            <ul>Related CERT C/C++ Rules and Recommendations are:  EXP34-C, ARR36-C Do not subtract or compare two pointers that do not refer to the
+               same array, ARR37-C Do not add or subtract an integer to a pointer to a non-array
+               object, MEM10-C Define and use a pointer validation function.</ul>
             <p>
                <FontS>Application</FontS>
             </p>
-            <ul>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/ENC.html" target="_blank">here</a>.</ul>
+            <ul>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/DEP.html" target="_blank">here</a>.</ul>
             <p>
                <FontS>References</FontS>
             </p>
-            <ul><small><a name="1">[1] Bojanova, I., Black, P. E., Yesha, Y.,&nbsp;<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8234453" target="_blank">Cryptography Classes in Bugs Framework (BF): Encryption Bugs (ENC), Verification Bugs
-                        (VRF), and Key Management Bugs (KMN)</a>. IEEE Software Technology Conference (STC 2017), NIST, Gaithersburg, USA. September
-                     25-28, 2017.</a></small></ul>
+            <ul><small><a name="1">[1] I. Bojanova, P. E. Black, Y. Yesha, and Y. Wu, “The Bugs Framework (BF): A Structured approach to express bugs”, Proceedings of IEEE International Conference on Software Quality, Reliability and Security (QRS), 2016, , pp. 175-182.</a></small></ul>
 
 
 

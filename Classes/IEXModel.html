@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <title>Encryption/Decryption Bugs (ENC) Class</title>
+      <title>BF Model of Information Exposure</title>
       <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
@@ -89,6 +88,7 @@
                      <i class="fa fa-fw fa-table"></i>
                      <span class="nav-link-text">Classes</span>
                      </a>
+
                      <ul class="sidenav-second-level collapse show" id="collapseComponents3">
                        <li >
                           <a href="ARC.html">
@@ -123,18 +123,18 @@
 
 
                         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
-                           <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents6">
+                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents6">
 
                               <span class="nav-link-text">ENC, KMN, VRF</span>
                               </a>
 
-                           <ul class="sidenav-third-level collapse show" id="collapseComponents6">
+                           <ul class="sidenav-third-level collapse " id="collapseComponents6">
 
                               <li>
                                  <a href="CRY.html">Model</a>
                                  </li>
 
-                              <li class="active">
+                              <li>
                                  <a href="ENC.html">ENC</a>
                                  </li>
 
@@ -155,14 +155,14 @@
 
 
                         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="IEX">
-                           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents8">
+                           <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents8">
 
                               <span class="nav-link-text">IEX</span>
                               </a>
 
-                           <ul class="sidenav-third-level collapse " id="collapseComponents8">
+                           <ul class="sidenav-third-level collapse show" id="collapseComponents8">
 
-                              <li>
+                              <li class="active">
                                  <a href="IEXModel.html">Model</a>
                                  </li>
 
@@ -235,7 +235,7 @@
                         </ul>
                      </li>
 
-                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
                      <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-star"></i>
                         <span class="nav-link-text">Examples</span>
@@ -350,7 +350,7 @@
                      </li>
 
 
-                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
+                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
                      <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-lightbulb-o"></i>
                         <span class="nav-link-text">Enlightenment</span>
@@ -406,77 +406,99 @@
 
          <div class="container-fluid" align="center">
 
-            <fontST>Encryption/Decryption Bugs (ENC) Class</fontST>
+            <fontST>BF Model of Information Exposure</fontST>
             </div>
 
          <div class="container-fluid" align="left">
 
 
             <p>
-               <FontS>Definition</FontS>
+               <FontS>Information and Data</FontS>
             </p>
-            <ul><i></i>We define Encryption/Decryption Bugs (ENC) as:</ul>
-            <ul><i>Encryption</i><i> </i><i>Bugs:</i><i> </i><span class="text-primary"><i>The</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>software</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>does</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>not</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>properly</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>transform</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>sensitive</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>data</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>(plaintext)</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>into</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>unintelligible</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>form</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>(ciphertext)</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>using</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>a</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>cryptographic</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>algorithm</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>and</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>key(s)</i></span>.</ul>
-            <ul>Decryption Bugs: <span class="text-primary"><i>The</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>software</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>does</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>not</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>properly</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>transform</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>ciphertext</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>into</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>plaintext</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>using</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>a</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>cryptographic</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>algorithm</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>and</i></span><span class="text-primary"><i> </i></span><span class="text-primary"><i>key(s)</i></span>.</ul>
-            <ul>Note that "transform" is for confidentiality.</ul>
-            <ul>See also the <a href="https://samate.nist.gov/BF/Classes/CRY.html" target="_blank">Model of Cryptographic Store or Transfer.</a></ul>
+            <ul>The terms data and information are often used interchangeably. Data is “a set of values
+               of qualitative or quantitative variables” <a href="#1">[1]</a>. Information is “any entity or form that provides the answer to a question of some
+               kind or resolves uncertainty" <a href="#2">[2]</a>. To what extent data is informative to someone depends on how unexpected it is to
+               that person. A difference between data and information is that data has no meaning, while information has meaning. Information and data are on a continuum. Bits in memory are data. Without external
+               context (meaning), the bits might represent an integer, an address, a set of flags
+               or other low-level information. At a higher level, the integer could be someone’s
+               age, the number of characters in a document, or a temperature. Typically, a person’s
+               age is considered information, whereas “temperature” may be considered data, since
+               it may be yesterday’s high temperature (where?) or the current temperature in a furnace.
+               Without further meaning, it is unclear whether the temperature is in Centigrade, Fahrenheit,
+               Kelvin, or something else! </ul>
+            <ul>In software, information is generated by processing data. <a href="#3">[3]</a> We distinguish between information that is sensitive and information that is not.
+               Certain kinds of information can be indirectly sensitive: when revealed can lead to
+               harmful consequences. </ul>
+            <ul>If sensitive information at rest in a file or a database is encrypted (see BF class
+               ENC), then information cannot actually be exposed. If information is communicated
+               outside the system via a secure channel, it cannot be exposed, either. </ul>
+            <ul>Sensitive information includes credentials, system data, state data, cryptographic data, digital documents, and personally identifiable and business data.</ul>
+            <ul>Credentials include password, token, smart card, digital certificate, and biometrics, such as fingerprints, hand configuration, retina, iris, and voice characteristics. System data could be pathnames, configurations, logs, and Web usage. State data includes ooperational data, such as SQL table names and column names, ports used, and server names. Cryptographic data is hashes, keys, and keying material, such as cryptographic keys, initialization vectors, shared secrets, domain parameters, random seeds, salts, and nonces.</ul>
+            <ul>Personally identifiable data corresponds to personally identifiable information (PII) and personally identifiable financial information (PIFI). PII is any information that could be used to distinguish one person from another – e.g. social security number (SSN), driver’s license number, identification card number. PIFI includes financial account numbers with security codes/ access codes/ password. There is also protected health information, which includes a patient's medical record or payment history, and payment card information, such as cardholder name, service code, expiration date, CVC2/ CVV2/ CID value, PIN or PIN block, content of magnetic stripe, etc.</ul>
+            <ul>Business data covers intellectual property and trade secrets, operational and inventory data, and industry-specific data, in addition to customer and employee data.</ul>
             <p>
-               <FontS>Type</FontS>
+               <FontS>Information Exposure Model</FontS>
             </p>
-            <ul>High (semantic).</ul>
-            <p>
-               <FontS>Taxonomy</FontS>
-            </p>
-            <ul>Fig. 1 depicts ENC causes, attributes and consequences. </ul>
-            <ul><span class="text-primary"><u></u></span></ul>
+            <ul>To ground information exposure, we have developed a general model. “Exposure” is to any entity that should not have that information, not just information that is a security concern. </ul>
+            <ul>Fig. 1 presents our BF information exposure bugs model, showing through what channels software could expose information. </ul>
             <div align="center">
-               <p><a target="_blank" href="images/ENC.png"><img class="img-fluid" src="images/ENC.png"></a></p>
-               <p><em>Fig 1. Encryption/Decryption Bugs (ENC) Class<span class="text-info"> - click on image for detailed view</span>.</em></p>
+              <p><a target="_blank" href="images/IEXModel.png"><img class="img-fluid" src="images/IEXModel.png"></a></p>
+
+               <p><em>Fig 1. BF Model of Information Exposure<span class="text-info"> - click on image for detailed view</span>.</em></p>
             </div>
-            <p>
-               <FontS>Attributes</FontS>
-            </p>
-            <ul><b>Sensitive</b><b> </b><b>Data</b> – Credentials, System Data, State Data, Cryptographic Data, Digital Documents.</ul>
-            <ul>This is secret (confidential) data. Credentials include Password, Token, Smart Card, Digital Certificate, Biometrics (fingerprint, hand configuration, retina, iris, voice.) System Data could be configurations, logs, Web usage. Cryptographic Data is hashes, keys, keying material. Keying material is cryptographic keys, initialization vectors, shared secrets, domain parameters, random bits (seeds, salts, nonces).</ul>
-            <ul><b>Data</b><b> </b><b>State</b><b> </b>– Stored, Transferred.</ul>
-            <ul>This reflects if data is in rest or use, or if data is in transit. Secure store is
-               needed for data that is in rest or use from files (e.g. ini, temp, configuration, log server, debug, cleanup, email attachment, login buffer,
-               executable, backup, core dump, access control list, private data index), directories
-               (Web root, FTP root, CVS repository), registry, cookies, source code &amp; comments, GUI,
-               environmental variables. Secure transfer is needed also for data in transit between
-               processes or over a network.</ul>
-            <ul><b>Algorithm</b><b> </b>– Symmetric, Asymmetric.</ul>
-            <ul>This is the key encryption scheme used to securely store/transfer sensitive data. Symmetric (secret) key algorithms (e.g. Serpent, Blowfish) use one shared key. Asymmetric (public) key algorithms (e.g. Diffie-Hellman, RSA) use two keys (public, private).</ul>
-            <ul><b>Security</b><b> </b><b>Service(s)</b><b> </b>– Confidentiality (and in some modes of encryption Integrity and Identity Authentication).</ul>
-            <ul>This is the security service that was failed by the encryption process. Confidentiality is the main security service provided by encryption. Those marked with ‘~’ are only for some specific modes of encryption.</ul>
-            <p>
-               <FontS> Causes</FontS>
-            </p>
-            <ul>In the graph of causes, modification of algorithm is remove/change or add a cryptographic step. Improper algorithm or step could be missing, inadequate, weak, risky/broken. Insecure mode of operation leads to weak encryption algorithm. Consequences</ul>
-            <p>
-               <FontS>Sites</FontS>
-            </p>
-            <ul>ENC is a high level class, so sites do not apply.</ul>
-            <p>
-               <FontS>Related BF Classes</FontS>
-            </p>
-            <ul>BF classes related to ENC are: <a href="https://samate.nist.gov/BF/Classes/KMN.html" target="_blank">KMN</a>, RND, and IEX.</ul>
-            <p>
-               <FontS>Related CWEs and SFP</FontS>
-            </p>
-            <ul>CWEs related to Encryption (although some are not ENC) are: <a href="https://cwe.mitre.org/data/definitions/256.html" target="_blank">CWE-256</a>, <a href="https://cwe.mitre.org/data/definitions/257.html" target="_blank">CWE-257</a>, <a href="https://cwe.mitre.org/data/definitions/261.html" target="_blank">CWE-261</a>, <a href="https://cwe.mitre.org/data/definitions/311.html" target="_blank">CWE-311</a>, <a href="https://cwe.mitre.org/data/definitions/312.html" target="_blank">CWE-312</a>, <a href="https://cwe.mitre.org/data/definitions/313.html" target="_blank">CWE-313</a>, <a href="https://cwe.mitre.org/data/definitions/314.html" target="_blank">CWE-314</a>, <a href="https://cwe.mitre.org/data/definitions/315.html" target="_blank">CWE-315</a>, <a href="https://cwe.mitre.org/data/definitions/316.html" target="_blank">CWE-316</a>, <a href="https://cwe.mitre.org/data/definitions/317.html" target="_blank">CWE-317</a>, <a href="https://cwe.mitre.org/data/definitions/318.html" target="_blank">CWE-318</a>, <a href="https://cwe.mitre.org/data/definitions/325.html" target="_blank">CWE-325</a>, <a href="https://cwe.mitre.org/data/definitions/326.html" target="_blank">CWE-326</a>, <a href="https://cwe.mitre.org/data/definitions/327.html" target="_blank">CWE-327</a>, <a href="https://cwe.mitre.org/data/definitions/329.html" target="_blank">CWE-329</a>, <a href="https://cwe.mitre.org/data/definitions/780.html" target="_blank">CWE-780</a>.</ul>
-            <ul>Related SFP clusters are <a href="https://apps.dtic.mil/docs/citations/ADB381215" target="_blank">SFP 17.1 Broken Cryptography and SFP 17.2 Weak Cryptography under Primary Cluster:
-                  Cryptography</a>.</ul>
-            <p>
-               <FontS>Application</FontS>
-            </p>
-            <ul>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/ENC.html" target="_blank">here</a>.</ul>
+            <ul>Information is stored on disks in files or in databases. Programs (source code and
+               executables) are also stored on a disk in files and do not require any other resources. <a href="#4">[4]</a> A program is comprised of functions’ invocations. Most functions process input data into output
+               information or data. However, some functions receive only control flow, e.g. to display
+               information, error messages, dialogs; or to act on a global data value or when a state
+               variable has changed or needs to be assessed. <a href="#5">[5]</a> A process is a program in execution and holds resources such as CPU, memory, disk, and input/output. A program can involve more than one process. <a href="#4">[4]</a> A session is a temporary, interactive information interchange between two or more devices, or between a computer and a user (e.g. login session). <a href="#6">[6]</a></ul>
+            <ul>Information exposure may happen when either unintended information is carried, or an unintended recipient gets the information. The exposure may be accidentally or because of attacker’s actions. </ul>
+            <ul>Information could leak through <i>legitimate channels </i>during normal use of software. For example, via information display, via queries (including query strings in SQL queries and GET request), from hardcoded information (password, cryptographic key, etc.), class cloning, serializable classes, when public methods access private variables, inappropriate cleanup, or from session and process environments. Cleanup includes removing previously used information, buffer cleanup (dead store removal), and use of <code>realloc</code><code>()</code>. Sessions may leak information via session-ID length, sessions state boundaries, caching,
+               and improper cleanup.</ul>
+            <ul>A <i>diagnostic</i> <i>channel</i>, or error channel, is a legitimate channel that helps users and developers diagnose, find, and correct
+               input or code errors. Information may be leaked via error messages, exception handling
+               messages, or other responses to erroneous inputs or erroneous data processing. If
+               an attacker forces and internal fault, it may divulge sensitive information, including
+               details on the software implementation logic, to the attacker. <a href="#7">[7]</a></ul>
+            <ul>A <i>side channel</i> is not intended to transmit information; however, it does transmit information <a href="#8">[8]</a>. Information may be revealed or deduced due to discrepancies or behavioral inconsistencies. For example, conveying different
+               responses  (e.g. an operation is successful or not), taking different time (e.g. CPU timing),
+               consuming different power, using different storage, or emitting different electromagnetic radiation. Behavioral inconsistency could be internal or external. </ul>
+            <ul>A <i>covert channel</i> is a side channel that is created deliberately as a hidden communication channel <a href="#9">[9]</a>. Unfortunately, a covert channel may be created by optimization techniques, such
+               as compiler optimizations <a href="#10">[10]</a> and speculative executions <a href="#11">[11]</a>. </ul>
+            <ul>In a side channel, it is common for an attacker to control both the part that induces the side effect and the part that measures it <a href="#12">[12, 13, 14]</a>. In other cases, there </ul>
+            <ul>could be two collaborating attackers: an unauthorized user controlling the part that induces the side effect and a third party controlling the part that measures it. There could be also only a passive attacker, who observes an existing (not induced)
+               behavioral inconsistency. Usually, statistical analysis of the measurements is involved. <a href="#15">[15]</a> describes creating covert channels using TCP/IP. Examples of side/covert attacks are Meltdown and Spectre <a href="#16">[16]</a>, as well as the inference attacks <a href="#17">[17]</a>.</ul>
+            <ul></ul>
+
             <p>
                <FontS>References</FontS>
             </p>
-            <ul><small><a name="1">[1] Bojanova, I., Black, P. E., Yesha, Y.,&nbsp;<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8234453" target="_blank">Cryptography Classes in Bugs Framework (BF): Encryption Bugs (ENC), Verification Bugs
-                        (VRF), and Key Management Bugs (KMN)</a>. IEEE Software Technology Conference (STC 2017), NIST, Gaithersburg, USA. September
-                     25-28, 2017.</a></small></ul>
+            <ul><small><a name="1">[1] Wikipedia. Data. <a href="https://en.wikipedia.org/wiki/Data" target="_blank">https://en.wikipedia.org/wiki/Data</a>.</a></small></ul>
+            <ul><small><a name="2">[2] Wikipedia. Information. <a href="https://en.wikipedia.org/wiki/Information" target="_blank">https://en.wikipedia.org/wiki/Information</a>. </a></small></ul>
+            <ul><small><a name="3">[3] TechDifference. “Difference Between Data and Information,” [Online]. Available: <a href="https://techdifferences.com/difference-between-data-and-information.html" target="_blank">https://techdifferences.com/difference-between-data-and-information.html</a> . [Accessed: Feb. 5, 2019].</a></small></ul>
+            <ul><small><a name="4">[4] TechDifference. “Difference Between Program and Process,” [Online]. Available: <a href="https://techdifferences.com/difference-between-program-and-process.html" target="_blank">https://techdifferences.com/difference-between-program-and-process.html</a> . [Accessed: Feb. 5, 2019].</a></small></ul>
+            <ul><small><a name="5">[5] ScienceDirect. “Software Function,” [Online]. Available: <a href="https://www.sciencedirect.com/topics/computer-science/software-function" target="_blank">https://www.sciencedirect.com/topics/computer-science/software-function</a> . [Accessed: Feb. 5, 2019].</a></small></ul>
+            <ul><small><a name="6">[6] Wikipedia. Session (computer science). <a href="https://en.m.wikipedia.org/wiki/Session_(computer_science)" target="_blank">https://en.m.wikipedia.org/wiki/Session_(computer_science)</a> .</a></small></ul>
+            <ul><small><a name="7">[7] P. Anderson, “Common Embedded Vulnerabilities, Part 2: Information Leaks”, <a href="https://www.electronicdesign.com/embedded/common-embedded-vulnerabilities-part-2-information-leaks" target="_blank">https://www.electronicdesign.com/embedded/common-embedded-vulnerabilities-part-2-information-leaks</a> [Accessed: Jan. 30, 2019].</a></small></ul>
+            <ul><small><a name="8">[8]  “Side Channels and Covert Channels”. [Online]. Available: <a href="http://ver.miun.se/courses/security/lectures/sidechannels.pdf" target="_blank">http://ver.miun.se/courses/security/lectures/sidechannels.pdf</a>. Pdf. [Accessed: Jan. 27, 2019].</a></small></ul>
+            <ul><small><a name="9">[9] Stack Exchange. “Covert, Overt, and side channels.” [Online]. Available: <a href="https://security.stackexchange.com/questions/113332/covert-overt-and-side-channels" target="_blank">https://security.stackexchange.com/questions/113332/covert-overt-and-side-channels</a>. [Accessed: Jan. 27, 2019].</a></small></ul>
+            <ul><small><a name="10">[10] Wikipedia. Category:Compiler optimizations. <a href="https://en.wikipedia.org/wiki/Category:Compiler_optimizations" target="_blank">https://en.wikipedia.org/wiki/Category:Compiler_optimizations</a> . </a></small></ul>
+            <ul><small><a name="11">[11] Wikipedia. Speculative execution. <a href="https://en.wikipedia.org/wiki/Speculative_execution" target="_blank">https://en.wikipedia.org/wiki/Speculative_execution</a> .</a></small></ul>
+            <ul><small><a name="12">[12] M. Lipp, et al. "Meltdown: Reading kernel memory from user space," 27th USENIX Security
+                     Symposium (USENIX Security 18). Aug. 15-17, 2018, Baltimore, MD, United States. pp.
+                     973-990.</a></small></ul>
+            <ul><small><a name="13">[13] Wikipedia. Side-channel attack. <a href="https://en.wikipedia.org/wiki/Side-channel_attack" target="_blank">https://en.wikipedia.org/wiki/Side-channel_attack</a>.</a></small></ul>
+            <ul><small><a name="14">[14] D. Brumley and D. Boneh. "Remote timing attacks are practical." Computer Networks
+                     48, no. 5 (2005). Pp. 701-716.</a></small></ul>
+            <ul><small><a name="15">[15] “Covert Channels: How Insiders Abuse TCP/IP to Create Covert Channels,” Mar. 1, 2018.
+                     [Online]. Available: <a href="https://thecybersecurityman.com/2018/03/01/covert-channels-how-insiders-abuse-tcp-ip-to-create-covert-channels/" target="_blank">https://thecybersecurityman.com/2018/03/01/covert-channels-how-insiders-abuse-tcp-ip-to-create-covert-channels/</a>. [Accessed: Jan. 27, 2019].</a></small></ul>
+            <ul><small><a name="16">[16] “Meltdown and Spectre.” [Online]. Available: <a href="https://meltdownattack.com" target="_blank">https://meltdownattack.com</a>, <a href="https://secure-web.cisco.com/1v5-S2bXdPtdOvzxSkLfZsUszPaEv2D2Snt1uqofwTavO5GIKToDejTQyqbKC4z5lMjE5SJl5th_IM62lknr6Dsc7gtNQlshSsZU_APEfxsHt_elnxmK1AUwMisLkhC6PlCcwFeQan-hYjErH7Kx_YxgWFMKVw1fnxB_8ySB-spEarJXD4w9A7rX5RYnXLTDi_EEL6EhEm3pE04l3vWZoW06aVOR21E3jY4paXYo_3N9jn9J7XihXdNBrN2aq4REqNzE0f05AFyYWSLriQG62jORhkvnaKqq_WoaS4G0dtXHRZxy2AhDAJkB3jgOW9pQ4MrEkw032W73zx6eOKb4RCbx8Fp-o0vGeH9cFK8brSWurSZwfelS02eZZ8H7Dcon1bjLhbi6IhpOT3gA6G6g4bMySsV-9VPqixMxepDtvuGAK8Z-rxV3vhU4ZAbaF1QE4-3ccdBBS9QfA2gcvYfKTRNTsIXMH8KLvP1IBMpU8nU8UYHtoEhQqHRhdIy_0z3w-/https%3A%2F%2Fspectreattack.com" target="_blank">https://spectreattack.com</a>. [Accessed: Jan. 27, 2019].</a></small></ul>
+            <ul><small><a name="17">[17] Wikipedia. Inference attack. <a href="https://en.wikipedia.org/wiki/Inference_attack" target="_blank">https://en.wikipedia.org/wiki/Inference_attack</a>. </a></small></ul>
+            <p>
+               <FontS></FontS>
+            </p>
+            <p>
+               <FontS></FontS>
+            </p>
 
 
 
