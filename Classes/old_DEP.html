@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -7,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <title>Infinite Loop (LOP) Class</title>
+      <title>Dereference Erroneous Pointer (DEP) Class</title>
       <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
@@ -88,7 +89,6 @@
                      <i class="fa fa-fw fa-table"></i>
                      <span class="nav-link-text">Classes</span>
                      </a>
-
                      <ul class="sidenav-second-level collapse show" id="collapseComponents3">
                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
                          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents12">
@@ -164,14 +164,14 @@
                          <a href="CIF.html">CIF</a>
                        </li>
                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
-                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents13">
+                         <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents13">
 
                                                 <span class="nav-link-text">DEP, PAR, PTR</span>
                                                 </a>
 
-                         <ul class="sidenav-third-level collapse " id="collapseComponents13">
+                         <ul class="sidenav-third-level collapse show" id="collapseComponents13">
 
-                           <li>
+                           <li class="active">
                              <a href="DEP.html"><fontL>DEP</fontL></a>
                            </li>
                            <li>
@@ -245,7 +245,7 @@
                          <a href="INJ.html">INJ</a>
                        </li>
 
-                       <li class="active">
+                       <li>
                          <a href="LOP.html">LOP</a>
                        </li>
 
@@ -284,7 +284,7 @@
                        </ul>
                        </li>
 
-                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
+                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
                      <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-star"></i>
                         <span class="nav-link-text">Examples</span>
@@ -399,7 +399,7 @@
                      </li>
 
 
-                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
+                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
                      <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-lightbulb-o"></i>
                         <span class="nav-link-text">Enlightenment</span>
@@ -455,7 +455,7 @@
 
          <div class="container-fluid" align="center">
 
-            <fontST>Infinite Loop (LOP) Class</fontST>
+            <fontST>Dereference Erroneous Pointer (DEP) Class</fontST>
             </div>
 
          <div class="container-fluid" align="left">
@@ -464,52 +464,93 @@
             <p>
                <FontS>Definition</FontS>
             </p>
-            <ul>We define Infinite Loop (LOP) as:</ul>
-            <ul><i></i><span class="text-primary"><u></u></span><span class="text-primary"><i>The software may (will?) never terminate execution</i></span><span class="text-primary"><i>.</i></span></ul>
+            <ul>We define Dereference Erroneous Pointer (DEP) as:</ul>
+            <ul><i></i><span class="text-primary"><u></u></span><span class="text-primary"><i>Software produces a faulty value because of pointer misuse</i></span>.</ul>
+            <ul>A pointer should refer to a particular place in memory consistent with the type of
+               the pointer. If the value of the pointer ("address") is wrong, then dereferencing
+               the pointer may return a garbage value. (The execution engine may catch such an invalid
+               dereference.) Possible reasons (causes?) that the value is wrong are: </ul>
+            <ul>NULL</ul>
+            <ul>
+               <ul>
+                  <li>Pointer scaling arithmetic was done wrong</li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Arithmetic based on assumed data or memory layout</li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Other incorrect math, such as ARC or WOP</li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Dereference of an address supplied by an untrustworthy source</li>
+               </ul>
+            </ul>
+            <ul>Note: Passing an erroneous pointer to <code>free()</code> or <code>realloc</code><code>()</code> is MAL, not DEP. </ul>
+            <ul>Note: Use after free is MAL, not DEP. One could argue that the pointer was once valid
+               (not erroneous), but no longer is.</ul>
+            <ul>Note: Use of uninitialized pointer is INI, not DEP. </ul>
             <p>
                <FontS>Type</FontS>
             </p>
-            <ul>Low (language-related).</ul>
+            <ul>Low (language-dependent)</ul>
             <p>
                <FontS>Taxonomy</FontS>
             </p>
-            <ul>Fig. 1 depicts LOP causes, attributes and consequences. </ul>
+            <ul>Fig. 1 depicts DEP causes, attributes, and consequences. </ul>
             <ul><span class="text-primary"><u></u></span>&lt;&lt;graph to be added&gt;&gt;</ul>
-            <ul></ul>
             <div align="center">
-               <p><a target="_blank" href="images/LOP.png"><img class="img-fluid" src="images/LOP.png"></a></p>
-               <p><em>Fig 1. Infinite Loop (LOP) Class<span class="text-info"> - click on image for detailed view</span>.</em></p>
+               <p><a target="_blank" href="images/DEP.png"><img class="img-fluid" src="images/DEP.png"></a></p>
+               <p><em>Dereference Erroneous (DEP) Pointer<span class="text-info"> - click on image for detailed view</span>.</em></p>
             </div>
             <p>
                <FontS>Attributes</FontS>
             </p>
-            <ul>The attributes of LOP are: </ul>
-            <ul><span class="text-primary"><u></u></span>&lt;&lt;content to be added&gt;&gt;</ul>
-            <p>
-               <FontS>Causes</FontS>
-            </p>
-            <ul><span class="text-primary"><u></u></span>&lt;&lt;content to be added&gt;&gt;</ul>
-            <p>
-               <FontS>Consequences</FontS>
-            </p>
-            <ul><span class="text-primary"><u></u></span>&lt;&lt;content to be added&gt;&gt;</ul>
+            <ul>The attributes of DEP are: </ul>
+            <ul><u><b>Fault</b></u> – </ul>
+            <ul>
+               <ul>
+                  <li>NPD (NULL Pointer Dereference)</li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Incorrectly computed pointer is dereferenced </li>
+               </ul>
+            </ul>
+            <ul>
+               <ul>
+                  <li>Untrusted Pointer Dereference</li>
+               </ul>
+            </ul>
+            <ul><b>Access</b> – Read, Write.</ul>
+            <ul>This is &lt;&lt;content to be added&gt;&gt;.</ul>
             <p>
                <FontS>Related BF Classes</FontS>
             </p>
-            <ul>BF classes related to LOP are: &lt;&lt;content to be added&gt;&gt;.</ul>
+            <ul>BF classes related to DEP are: PAR, &lt;&lt;content to be added&gt;&gt;.</ul>
             <p>
-               <FontS>Related CWEs and SFPs</FontS>
+               <FontS>Related CWEs, SFP, SEI/CERT Rules &amp; Recommendations, etc.</FontS>
             </p>
-            <ul><span class="text-primary"><u></u></span>CWEs related to LOP are: &lt;&lt;content to be added&gt;&gt;</ul>
+            <ul>CWEs related to IEX are: <a href="https://cwe.mitre.org/data/definitions/188.html" target="_blank">CWE-188</a>, <a href="https://cwe.mitre.org/data/definitions/476.html" target="_blank">CWE-476</a>,  <a href="https://cwe.mitre.org/data/definitions/468.html" target="_blank">CWE-468</a>,  <a href="https://cwe.mitre.org/data/definitions/588.html" target="_blank">CWE-588</a>,  <a href="https://cwe.mitre.org/data/definitions/690.html" target="_blank">CWE-690</a>,  <a href="https://cwe.mitre.org/data/definitions/706.html" target="_blank">CWE-706</a>, <a href="https://cwe.mitre.org/data/definitions/822.html" target="_blank">CWE-822</a>. </ul>
+            <ul>Note that <a href="https://cwe.mitre.org/data/definitions/395.html" target="_blank">CWE-395</a> is not related to DEP.</ul>
+            <ul>Related SFPs are Primary Cluster: Memory Access (aka CWE-890) and SFP Secondary Cluster: Faulty Pointer Use (aka CWE-971).</ul>
+            <ul>Related CERT C/C++ Rules and Recommendations are:  EXP34-C, ARR36-C Do not subtract or compare two pointers that do not refer to the
+               same array, ARR37-C Do not add or subtract an integer to a pointer to a non-array
+               object, MEM10-C Define and use a pointer validation function.</ul>
             <p>
                <FontS>Application</FontS>
             </p>
-            <ul>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/LOP.html" target="_blank">here</a>.</ul>
+            <ul>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/DEP.html" target="_blank">here</a>.</ul>
             <p>
                <FontS>References</FontS>
             </p>
-            <ul><small><a name="1">[1] Bojanova, I., Black, P. E., Yesha, Y., Wu, Y.,&nbsp;<a href="https://ieeexplore.ieee.org/document/7589797/" target="_blank">The Bugs Framework (BF): A Structured Approach to Express Bugs</a>. 2016 IEEE International Conference on Software Quality, Reliability, and Security
-                     (<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7589797" target="_blank">QRS 2016</a>), Vienna, Austria. August 1-3, 2016.</a></small></ul>
+            <ul><small><a name="1">[1] I. Bojanova, P. E. Black, Y. Yesha, and Y. Wu, “The Bugs Framework (BF): A Structured approach to express bugs”, Proceedings of IEEE International Conference on Software Quality, Reliability and Security (QRS), 2016, , pp. 175-182.</a></small></ul>
 
 
 

@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <title>Infinite Loop (LOP) Class</title>
+      <title>Initialization Fault (INI) Class</title>
       <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
@@ -134,17 +134,17 @@
                          </ul>
                        </li>
                        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
-                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents14">
+                         <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseComponents14">
 
                                             <span class="nav-link-text">BOF, INI, MAL, MUS</span>
                                             </a>
 
-                         <ul class="sidenav-third-level collapse " id="collapseComponents14">
+                         <ul class="sidenav-third-level collapse show" id="collapseComponents14">
 
                            <li>
                              <a href="BOF.html">BOF</a>
                            </li>
-                           <li>
+                           <li class="active">
                              <a href="INI.html"><fontL>INI</fontL></a>
                            </li>
                            <li>
@@ -245,7 +245,7 @@
                          <a href="INJ.html">INJ</a>
                        </li>
 
-                       <li class="active">
+                       <li>
                          <a href="LOP.html">LOP</a>
                        </li>
 
@@ -283,7 +283,6 @@
 
                        </ul>
                        </li>
-
                   <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
                      <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-star"></i>
@@ -419,6 +418,7 @@
 
                         </ul>
                      </li>
+
                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Publications">
                   <a class="nav-link" href="../Publications/index.html">
                      <i class="fa fa-fw fa-book"></i>
@@ -455,17 +455,16 @@
 
          <div class="container-fluid" align="center">
 
-            <fontST>Infinite Loop (LOP) Class</fontST>
+            <fontST>Initialization Fault (INI) Class</fontST>
             </div>
 
          <div class="container-fluid" align="left">
 
-
             <p>
                <FontS>Definition</FontS>
             </p>
-            <ul>We define Infinite Loop (LOP) as:</ul>
-            <ul><i></i><span class="text-primary"><u></u></span><span class="text-primary"><i>The software may (will?) never terminate execution</i></span><span class="text-primary"><i>.</i></span></ul>
+            <ul>We define Initialization Fault (INI) as:</ul>
+            <ul><i></i><span class="text-primary"><u></u></span><span class="text-primary"><i>The software uses an incorrect value because a resource was not properly initialized</i></span><span class="text-primary"><i>.</i></span></ul>
             <p>
                <FontS>Type</FontS>
             </p>
@@ -473,18 +472,29 @@
             <p>
                <FontS>Taxonomy</FontS>
             </p>
-            <ul>Fig. 1 depicts LOP causes, attributes and consequences. </ul>
+            <ul>Fig. 1 depicts INI causes, attributes and consequences. </ul>
             <ul><span class="text-primary"><u></u></span>&lt;&lt;graph to be added&gt;&gt;</ul>
-            <ul></ul>
             <div align="center">
-               <p><a target="_blank" href="images/LOP.png"><img class="img-fluid" src="images/LOP.png"></a></p>
-               <p><em>Fig 1. Infinite Loop (LOP) Class<span class="text-info"> - click on image for detailed view</span>.</em></p>
+               <p><a target="_blank" href="images/INI.png"><img class="img-fluid" src="images/INI.png"></a></p>
+               <p><em>Fig 1. Initialization Fault (INI) Class<span class="text-info"> - click on image for detailed view</span>.</em></p>
             </div>
             <p>
                <FontS>Attributes</FontS>
             </p>
-            <ul>The attributes of LOP are: </ul>
-            <ul><span class="text-primary"><u></u></span>&lt;&lt;content to be added&gt;&gt;</ul>
+            <ul>The attributes of INI are: </ul>
+            <ul><u><b>Reso</b></u><u><b>urce</b></u> – Variable, Field, Member, Connection, Array, Pointer, etc.</ul>
+            <ul>This is the thing being initialized. It could be a variable, a member of a structure or record, parts of an array, a pointer or reference,
+               disk file, entropy pool, network connection, etc.</ul>
+            <ul><u><b>Value</b></u> – Small, Medium, Large.</ul>
+            <ul>This indicates the incorrect value. It could be several bytes or even as small as one byte of memory; or as large as an entire database.</ul>
+            <ul><u><b>Problem</b></u> – Uninitialized, Improperly Initialized.</ul>
+            <ul>This indicates the problem leading to use of incorrect value. It covers both not initialized at all and not initialized correctly. The resource may
+               not be initialized at all for many reasons: the programmer neglected to write initialization
+               at all, program execution followed an unexpected path, the initialization routine
+               was not called, etc. Not initialized correctly includes initialized with a value that
+               leads to a security concern, see <a href="https://cwe.mitre.org/data/definitions/457.html" target="_blank">CWE-457</a>. </ul>
+            <ul>Strings in C must have a NULL at the end. Creating a C string without a terminating
+               NULL is a particular danger.</ul>
             <p>
                <FontS>Causes</FontS>
             </p>
@@ -496,20 +506,22 @@
             <p>
                <FontS>Related BF Classes</FontS>
             </p>
-            <ul>BF classes related to LOP are: &lt;&lt;content to be added&gt;&gt;.</ul>
+            <ul>BF classes related to INI are: &lt;&lt;content to be added&gt;&gt;.</ul>
             <p>
-               <FontS>Related CWEs and SFPs</FontS>
+               <FontS>Related CWEs, SFP, and SEI/CERT Rules &amp; Recommendations</FontS>
             </p>
-            <ul><span class="text-primary"><u></u></span>CWEs related to LOP are: &lt;&lt;content to be added&gt;&gt;</ul>
+            <ul>CWEs related to INI: <a href="https://cwe.mitre.org/data/definitions/456.html" target="_blank">CWE 456</a>, <a href="https://cwe.mitre.org/data/definitions/457.html" target="_blank">CWE-457</a>, <a href="https://cwe.mitre.org/data/definitions/665.html" target="_blank">CWE 665</a>, <a href="https://cwe.mitre.org/data/definitions/824.html" target="_blank">CWE 824</a>, <a href="https://cwe.mitre.org/data/definitions/908.html" target="_blank">CWE 908</a>, <a href="https://cwe.mitre.org/data/definitions/909.html" target="_blank">CWE 909</a>. </ul>
+            <ul>The only related SFP cluster is &lt;&lt;content to be added&gt;&gt;.</ul>
+            <ul>Related SEI/CERT Rules &amp; Recommendations are MEM09-C Do not assume memory allocation
+               routines initialize memory.</ul>
             <p>
                <FontS>Application</FontS>
             </p>
-            <ul>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/LOP.html" target="_blank">here</a>.</ul>
+            <ul>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/INI.html" target="_blank">here</a>.</ul>
             <p>
                <FontS>References</FontS>
             </p>
-            <ul><small><a name="1">[1] Bojanova, I., Black, P. E., Yesha, Y., Wu, Y.,&nbsp;<a href="https://ieeexplore.ieee.org/document/7589797/" target="_blank">The Bugs Framework (BF): A Structured Approach to Express Bugs</a>. 2016 IEEE International Conference on Software Quality, Reliability, and Security
-                     (<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7589797" target="_blank">QRS 2016</a>), Vienna, Austria. August 1-3, 2016.</a></small></ul>
+            <ul><small><a name="1">[1] I. Bojanova, P. E. Black, Y. Yesha, and Y. Wu, “The Bugs Framework (BF): A Structured approach to express bugs”, Proceedings of IEEE International Conference on Software Quality, Reliability and Security (QRS), 2016, , pp. 175-182.</a></small></ul>
 
 
 
