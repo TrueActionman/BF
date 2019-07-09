@@ -618,7 +618,7 @@
                   <td align="center"> Code With Fix</td>
               </tr>
               <td>
-                  <div class="sourceCodeTable" ;>
+                  <div class="sourceCodeTable" >
                       <table>
                           <tr>
                               <td><pre > 1 <br> <span class="addLine">2</span> <br> <br> 3 <br> 4<br> 5<br> <br> 6<br> 7<br></pre> </td>
@@ -680,7 +680,7 @@
                           <div class="sourceCodeTable">
                               <table>
                                   <tr>
-                                      <td><pre > 1 <br> 2 <br> 3 <br> 4<br> 5<br> 6<br> 7<br></pre></pre></td>
+                                      <td><pre > 1 <br> 2 <br> 3 <br> 4<br> 5<br> 6<br> 7<br></pre></td>
                                       <td><pre ><span class="text-primary">if</span> (type == AlphabeticSequence) <br>{ <br>    <span class="text-primary">while</span> ((numberShadow /= sequenceSize) > 0){<br><br>        letters[lettersSize  - ++length] = sequence[numberShadow % sequenceSize - 1]; <br>    }<br>}</pre>
                                       </td>
                                   </tr>
@@ -853,7 +853,171 @@
           </table>
       </ul>
   </p>
+  <div align="center"><img src="../images/thinLine.jpg">
+  </div>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19842"><p class="text-info">
+      <fontS>CVE-2018-19842</fontS>
+  </p></a>
+  <p><fontSS>BF Taxonomy</fontSS></p>
+  <ul><strong>Cause: </strong><cause>Boundary Not Checked Properly</cause> leads to <cause>Pointer Out of Range</cause></ul>
+  <ul><strong>Attributes: </strong>
+    <ul><u>Access</u>: <attribute>Read</attribute></ul>
+    <ul>Boundary: <attribute>Above</attribute></ul>
+    <ul>Location: <attribute>Stack</attribute></ul>
 
+    <ul>Data Size: <attribute>Small</attribute> (1 byte)</ul>
+    <ul>Excursion: <attribute>Continuous </attribute></ul>
+  </ul>
+  <ul><strong>Consequence: </strong><consequence>Program Crash</consequence> leading to <consequence>DoS</consequence></ul>
+
+  <p>
+      <fontSS>BF Description</fontSS>
+  </p>
+  <p>
+      <ul>
+        "<cause>Boundary Not Checked Properly</cause> leads to <cause>Pointer Out of Range</cause>, where <attribute>small</attribute> data is <attribute>read</attribute> in a <attribute>continuous</attribute> excursion, <attribute>above</attribute> the array boundary, which can lead to a <consequence>Program Crash</consequence> leading to <consequence>DoS</consequence>."</a>
+    </ul>
+  </p>
+  <p>
+      <fontSS>CVE Description</fontSS>
+  </p>
+  <p>
+      <ul>"getToken in libr/asm/p/asm_x86_nz.c in radare2 before 3.1.0 allows attackers to cause a denial of service (stack-based buffer over-read) via crafted x86 assembly data, as demonstrated by rasm2."
+      </ul>
+  </p>
+  <p>
+      <fontSS>Analysis</fontSS>
+  </p>
+  <p>
+      <ul>In the <code>assemble()</code> function, <attribute>char</attribute> op[<span class="text-primary">128</span>] is defined, filled with the first 127 characters of the passed <code>rasm2</code> command arguments, and terminated with 0 (for to make a valid C string). So, there is no problem there.</ul>
+
+      <ul>However, in the <code>getToken()</code> function, the part that skips spaces in <code>str</code>, does no check if the pointer bypasses the 0 terminator. The problem is only when the spaces go up to the end of <code>str</code>. If there were even only one character after the skipped spaces and before the end of <code>str</code>, the code works fine.
+</ul>
+<ul>So, the 0 terminator is skipped only if while skipping spaces the last element in <code>str</code> is a space -- it could be only one space that is also the last one as in the <i>Steps To Reproduce</i> <a href="https://github.com/radare/radare2/issues/12239">here</a>.</ul>
+  <ul>The main <a href="https://github.com/radare/radare2/commit/66191f780863ea8c66ace4040d0d04a8842e843">fixes</a> check if whether the pointer reaches or bypasses the end of the string (buffer) :  </ul>
+  <ul><code>str[*begin]</code></ul>
+<ul><code>str[*end]</code></ul>
+<ul><code>if (*begin > strlen (str))</code></ul>
+<ul><u>Note</u>: There are still problems in the fixed code, as <code>*begin</code> and <code>*end</code>, are used before checking if they are <code>null</code> -- see lines 4298, 4307, 4311, 4318. If the assumption is they are never <code>null</code>,  then why such a check is present in the <code>while</code> loops.</ul>
+  </p>
+
+  <p>
+      <fontSS>Source Code</fontSS>
+  </p>
+  <p>
+      <ul>
+        <table align="center" class="table-responsive">
+            <tr>
+                <td align="center"> Code With Bug</td>
+                <tr>
+                    <td>
+                      <div class="sourceCodeTable">
+                          <table>
+                              <tr>
+                                  <td><pre > 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23 </pre></td><td><pre><span class="text-primary">static</span> x86newTokenType <span style="color: #0066BB; font-weight: bold">getToken</span>(<span class="text-primary">const</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span>str, <span style="color: #333399; font-weight: bold">size_t</span> <span style="color: #333333">*</span>begin, <span style="color: #333399; font-weight: bold">size_t</span> <span style="color: #333333">*</span>end) {
+
+
+
+       <span class="text-primary">while</span> (begin <span style="color: #333333">&amp;&amp;</span> isspace ((ut8)str[<span style="color: #333333">*</span>begin])) {
+             <span style="color: #333333">++</span>(<span style="color: #333333">*</span>begin);
+       }
+
+       <span class="text-primary">if</span> (<span style="color: #333333">!</span>str[<span style="color: #333333">*</span>begin]) {                <span style="color: #888888">// null byte		</span>
+             <span style="color: #333333">*</span>end <span style="color: #333333">=</span> <span style="color: #333333">*</span>begin;
+             <span class="text-primary">return</span> TT_EOF;
+       } <span class="text-primary">else</span> <span class="text-primary">if</span> (isalpha ((ut8)str[<span style="color: #333333">*</span>begin])) {   <span style="color: #888888">// word token		</span>
+
+             <span style="color: #333333">*</span>end <span style="color: #333333">=</span> <span style="color: #333333">*</span>begin;
+             <span class="text-primary">while</span> (end <span style="color: #333333">&amp;&amp;</span> isalnum ((ut8)str[<span style="color: #333333">*</span>end])) {
+                     <span style="color: #333333">++</span>(<span style="color: #333333">*</span>end);
+             }
+             <span class="text-primary">return</span> TT_WORD;
+       } <span class="text-primary">else</span> <span class="text-primary">if</span> (isdigit ((ut8)str[<span style="color: #333333">*</span>begin])) {   <span style="color: #888888">// number token		</span>
+
+             <span style="color: #333333">*</span>end <span style="color: #333333">=</span> <span style="color: #333333">*</span>begin;
+             <span class="text-primary">while</span> (end <span style="color: #333333">&amp;&amp;</span> isalnum ((ut8)str[<span style="color: #333333">*</span>end])) {   <span style="color: #888888">// accept alphanumeric characters, because hex.		</span>
+                     <span style="color: #333333">++</span>(<span style="color: #333333">*</span>end);
+</pre></td></tr></table></div>
+
+                  </td>
+                </tr>
+                <td align="center"> Code With Fix</td>
+              </tr>
+                  <td>
+                    <div class="sourceCodeTable">
+                      <table><tr><td><pre> 1
+ <span class="addLine">2
+ 3
+ 4
+ 5</span>
+ 6
+ 7
+ 8
+ 9
+10
+11
+<span class="addLine">12
+13</span>
+14
+<span class="addLine">15</span>
+16
+17
+18
+<span class="addLine">19
+20</span>
+21
+22
+23</pre></td><td><pre> <span class="text-primary">static</span> x86newTokenType <span style="color: #0066BB; font-weight: bold">getToken</span>(<span class="text-primary">const</span> <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">*</span>str, <span style="color: #333399; font-weight: bold">size_t</span> <span style="color: #333333">*</span>begin, <span style="color: #333399; font-weight: bold">size_t</span> <span style="color: #333333">*</span>end) {
+	<span class="text-primary">if</span> (<span style="color: #333333">*</span>begin <span style="color: #333333">&gt;</span> strlen (str)) {
+ 		<span class="text-primary">return</span> TT_EOF;
+ 	}
+	<span class="text-primary">while</span> (begin <span style="color: #333333">&amp;&amp;</span> str[<span style="color: #333333">*</span>begin] <span style="color: #333333">&amp;&amp;</span> isspace ((ut8)str[<span style="color: #333333">*</span>begin])) {
+		<span style="color: #333333">++</span>(<span style="color: #333333">*</span>begin);
+	}
+
+	<span class="text-primary">if</span> (<span style="color: #333333">!</span>str[<span style="color: #333333">*</span>begin]) {                <span style="color: #888888">// null byte		</span>
+		<span style="color: #333333">*</span>end <span style="color: #333333">=</span> <span style="color: #333333">*</span>begin;
+		<span class="text-primary">return</span> TT_EOF;
+	}
+ 	<span class="text-primary">if</span> (isalpha ((ut8)str[<span style="color: #333333">*</span>begin])) {   <span style="color: #888888">// word token</span>
+	        <span style="color: #333333">*</span>end <span style="color: #333333">=</span> <span style="color: #333333">*</span>begin;
+		<span class="text-primary">while</span> (end <span style="color: #333333">&amp;&amp;</span> str[<span style="color: #333333">*</span>end] <span style="color: #333333">&amp;&amp;</span> isalnum ((ut8)str[<span style="color: #333333">*</span>end])) {
+			<span style="color: #333333">++</span>(<span style="color: #333333">*</span>end);
+		}
+		<span class="text-primary">return</span> TT_WORD;
+	}
+ 	<span class="text-primary">if</span> (isdigit ((ut8)str[<span style="color: #333333">*</span>begin])) {   <span style="color: #888888">// number token</span>
+		<span style="color: #333333">*</span>end <span style="color: #333333">=</span> <span style="color: #333333">*</span>begin;
+                <span class="text-primary">while</span> (end <span style="color: #333333">&amp;&amp;</span> isalnum ((ut8)str[<span style="color: #333333">*</span>end])) {   <span style="color: #888888">// accept alphanumeric characters, because hex.		</span>
+			<span style="color: #333333">++</span>(<span style="color: #333333">*</span>end);
+</pre></td>
+</tr></table></div>
+</td>
+</table>
+      </ul>
+  </p>
   <div align="center"><img src="../images/thinLine.jpg">
   </div>
   <p class="text-info"><fontS><a name="ref">References</a>
