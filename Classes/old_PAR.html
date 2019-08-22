@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" lang="en">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -171,7 +170,7 @@
 
                          <ul class="sidenav-third-level collapse show" id="collapseComponents13">
 
-                           <li >
+                           <li>
                              <a href="DEP.html"><fontL>DEP</fontL></a>
                            </li>
                            <li class="active">
@@ -483,6 +482,7 @@
 
                         </ul>
                      </li>
+
                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Publications">
                   <a class="nav-link" href="../Publications/index.html">
                      <i class="fa fa-fw fa-book"></i>
@@ -524,7 +524,104 @@
 
          <div class="container-fluid" align="left">
 
-<ul>To be added</ul>
+
+            <p>
+               <FontS>Definition</FontS>
+            </p>
+            <ul>We define Pointer Arithmetic Fault (PAR) as:</ul>
+            <ul><i></i><span class="text-primary"><u></u></span><span class="text-primary"><i>Software produces a faulty value because </i></span><span class="text-primary"><i>of incorrect pointer arithmetic</i></span><span class="text-primary"><i>.</i></span></ul>
+            <p>
+               <FontS>Type</FontS>
+            </p>
+            <ul>Low (language-related)</ul>
+            <p>
+               <FontS>Taxonomy</FontS>
+            </p>
+            <ul>Fig. 1 depicts PAR causes, attributes and consequences. </ul>
+            <ul><span class="text-primary"><u></u></span>&lt;&lt;content to be added&gt;&gt;</ul>
+            <div align="center">
+               <p><a target="_blank" href="images/PAR.png"><img class="img-fluid" src="images/PAR.png"></a></p>
+               <p><em>Pointer Arithmetic Fault (PAR) Class<span class="text-info"> - click on image for detailed view</span>.</em></p>
+            </div>
+            <p>
+               <FontS>Attributes</FontS>
+            </p>
+            <ul>The attributes of PAR are: </ul>
+            <ul><u><b>Fault</b></u><b> </b>–</ul>
+            <ul>
+               <li>Numeric value with operator (that is, operator used incorrectly) (have different faults
+                  for relational and arithmetic operators?)</li>
+            </ul>
+            <ul>
+               <li>Incorrect Operator (no correct way to use this operator, e.g. * or /)</li>
+            </ul>
+            <ul>
+               <li>Operation between pointers that are not elements of the same array object (see C11,
+                  Section 6.5.6 Additive operators, para. 9ff)</li>
+            </ul>
+            <p>
+               <FontS>Causes</FontS>
+            </p>
+            <ul><span class="text-primary"><u></u></span>&lt;&lt;content to be added&gt;&gt;.</ul>
+            <p>
+               <FontS>Consequences</FontS>
+            </p>
+            <ul><span class="text-primary"><u></u></span>&lt;&lt;content to be added&gt;&gt;.</ul>
+            <p>
+               <FontS>Related BF Classes</FontS>
+            </p>
+            <ul><span class="text-primary"><u></u></span>BF classes related to PAR are: &lt;&lt;content to be added&gt;&gt;.</ul>
+            <p>
+               <FontS>Related CWEs and SFP</FontS>
+            </p>
+            <ul>CWEs related to PAR are: <a href="https://cwe.mitre.org/data/definitions/468.html">CWE-468</a>, <a href="https://cwe.mitre.org/data/definitions/469.html">CWE-469</a> (maybe <a href="https://cwe.mitre.org/data/definitions/467.html">CWE-467</a>), </ul>
+            <p>
+               <FontS>Notes</FontS>
+            </p>
+            <ul>This is class was first defined for SATE VI Ockham.</ul>
+            <ul>Using relational or arithmetic operators on a pointer and a numeric type is included.
+               Here is context code for following examples of PAR:</ul>
+            <ul><code>char data[10], otherDatap<a href="#5">[5]</a>, *datap;</code></ul>
+            <ul><code>datap = fgets(data, 10, infile);</code></ul>
+            <ul>Relational operator and numeric value:</ul>
+            <ul><code>if (datap &lt; 0) {</code></ul>
+            <ul>Comparing pointers that are not to elements of the same array object:</ul>
+            <ul><code>i</code><code>f (datap+2 &gt; otherDatap) {</code></ul>
+            <ul>Subtracting pointers that are not to elements of the same array object:</ul>
+            <ul><code>int diff = datap - otherDatap;</code></ul>
+            <ul>Multiplication:</ul>
+            <ul><code>int value = datap * 2;</code></ul>
+            <ul>Adding pointers:</ul>
+            <ul><code>char *sump = datap + otherDatap;</code></ul>
+            <ul>Adding non-integer type:</ul>
+            <ul><code>char *nextp = datap + 3.1415926535;</code></ul>
+            <ul>Consider the following:</ul>
+            <ul><code>datap = fgets(data, 10, infile);</code></ul>
+            <ul><code>if (datap &lt; 0) {</code></ul>
+            <ul>The conditional statement has a chain where Pointer Arithmetic Fault (PAR) causes Unchecked Error (UCE).</ul>
+            <p>
+               <FontS>Application</FontS>
+            </p>
+            <ul><span class="text-primary"><u></u></span>Application examples are provided <a href="https://samate.nist.gov/BF/Examples/PAR.html">here</a>.</ul>
+            <p>
+               <FontS>References</FontS>
+            </p>
+            <ul><small>[1] I. Bojanova, P. E. Black, Y. Yesha, and Y. Wu, “The Bugs Framework (BF): A Structured approach to express bugs”, Proceedings of IEEE International Conference on Software Quality, Reliability and Security (QRS), 2016, , pp. 175-182.</small></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             </div>
