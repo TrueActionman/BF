@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Pseudo-Random Number Generation Bugs (PRN) Examples</title>
+  <!-- Bootstrap core CSS-->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Source%20Code%20Pro" rel="stylesheet" type="text/css">
+<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="../css/styles.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-light" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-lightt fixed-top" id="mainNav">
+
+          <div class="collapse navbar-collapse" id="navbarsExampleContainer">
+            <div class="mr-auto">
+              <img class="" src="../images/nist.png"></img>
+    <img class="" src="../images/samate.png"></img>
+
+    <fontTT>The Bugs Framework (BF) <span class="remove">-</span> </fontTT> <fontSS> <span class="remove"><red>Software developers' and testers' "Best Friend"<red></span><fontSS>
+    </div>
+    <form class="form-inline my-2 my-md-0" action="../search.html">
+      <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input" >
+      <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled="disabled">Search</button>
+    </form>
+          </div></nav>
+      <!-- Navigation-->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+        <div class="mobile">
+          <img class="img-fluid" src="../images/nist.png"></img>
+        <img class="img-fluid" src="../images/samate.png"></img>
+
+
+      </div><span class="ml-auto mobile"><fontTT>The Bugs Framework (BF)</fontTT></span>
+      <span class="mr-auto mobile2"><fontTT>The Bugs Framework</fontTT></span>
+        <button class="navbar-toggler navbar-toggler-right ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="nav-link-text">BF Home</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents2">
+            <li>
+              <a href="../index.html">Welcome</a>
+            </li>
+
+            <li>
+              <a href="../Home/Approach.html">Approach</a>
+            </li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Classes">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Classes</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents3">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents12">
+
+                                     <span class="nav-link-text">ARC, ARG, WOP</span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents12">
+                <li>
+                  <a href="../Classes/ARC.html">ARC</a>
+                </li>
+                <li>
+                  <a href="../Classes/ARG.html">
+                <fontL>ARG</fontL>
+              </a>
+                </li>
+                <li>
+                  <a href="../Classes/WOP.html">
+                <fontL>WOP</fontL>
+              </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents11">
+
+                                     <span class="nav-link-text"><fontL>ATN, AUT</fontL></span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents11">
+
+                <li>
+                  <a href="../Classes/ATN.html">
+                <fontL>ATN</fontL>
+              </a>
+                </li>
+
+                <li>
+                  <a href="../Classes/AUT.html">
+                <fontL>AUT</fontL>
+              </a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="../Classes/CIF.html">CIF</a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents13">
+
+                                     <span class="nav-link-text"><fontL>DEP, PAR, PTR</fontL></span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents13">
+
+                <li>
+                  <a href="../Classes/DEP.html"><fontL>DEP</fontL></a>
+                </li>
+                <li>
+                  <a href="../Classes/PAR.html"><fontL>PAR</fontL></a>
+                </li>
+                <li>
+                  <a href="../Classes/PTR.html">
+                <fontL>PTR</fontL>
+              </a>
+                </li>
+
+              </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents6">
+
+                                     <span class="nav-link-text">ENC, KMN, VRF</span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents6">
+
+                <li>
+                  <a href="../Classes/CRY.html">Model</a>
+                </li>
+
+                <li>
+                  <a href="../Classes/ENC.html">ENC</a>
+                </li>
+
+
+                <li>
+                  <a href="../Classes/KMN.html">KMN</a>
+                </li>
+
+
+
+                <li>
+                  <a href="../Classes/VRF.html">VRF</a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="IEX">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents10">
+
+                                     <span class="nav-link-text">IEX</span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents10">
+
+                <li>
+                  <a href="../Classes/IEXModel.html">Model</a>
+                </li>
+
+                <li>
+                  <a href="../Classes/IEX.html">IEX</a>
+                </li>
+
+
+
+
+              </ul>
+            </li>
+
+
+
+            <li>
+              <a href="../Classes/INJ.html">INJ</a>
+            </li>
+
+            <li>
+              <a href="../Classes/LOP.html"><fontL>LOP</fontL></a>
+            </li>
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents14">
+
+                                 <span class="nav-link-text">MAD, MAL, MUS, MDL</span>
+                                 </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents14">
+                <li>
+                  <a href="../Classes/MEMModel.html">Model</a>
+                </li>
+                <li>
+                  <a href="../Classes/MAD.html">MAD</a>
+                </li>
+                <li>
+                  <a href="../Classes/MAL.html">MAL</a>
+                </li>
+                <li>
+                  <a href="../Classes/MUS.html">MUS</a>
+                </li>
+                <li>
+                  <a href="../Classes/MDL.html">MDL</a>
+                </li>
+
+              </ul>
+            </li>
+
+
+
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents7">
+
+                                     <span class="nav-link-text">PRN, TRN </span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents7">
+
+                <li>
+                  <a href="../Classes/RNModel.html">Model</a>
+                </li>
+
+                <li>
+                  <a href="../Classes/PRN.html">PRN</a>
+                </li>
+
+                <li>
+                  <a href="../Classes/TRN.html">TRN</a>
+                </li>
+
+
+
+              </ul>
+            </li>
+
+
+
+
+
+            </ul>
+            </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Examples">
+          <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-star"></i>
+            <span class="nav-link-text">Examples</span>
+          </a>
+          <ul class="sidenav-second-level collapse show" id="collapseComponents">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents15">
+
+                                     <span class="nav-link-text"><fontL>ARC, ARG, WOP</fontL></span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents15">
+                <li >
+                  <a href="ARC.html"><fontL>ARC</fontL></a>
+                </li>
+                <li >
+                  <a href="ARG.html">
+                <fontL>ARG</fontL>
+              </a>
+                </li>
+                <li>
+                  <a href="WOP.html">
+                <fontL>WOP</fontL>
+              </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents16">
+
+                                     <span class="nav-link-text"><fontL>ATN, AUT</fontL></span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents16">
+
+                <li>
+                  <a href="ATN.html">
+                <fontL>ATN</fontL>
+              </a>
+                </li>
+
+                <li>
+                  <a href="AUT.html">
+                <fontL>AUT</fontL>
+              </a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="CIF.html">CIF</a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents18">
+
+                                     <span class="nav-link-text"><fontL>DEP, PAR, PTR</fontL></span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents18">
+
+                <li >
+                  <a href="DEP.html"><fontL>DEP</fontL></a>
+                </li>
+                <li>
+                  <a href="PAR.html"><fontL>PAR</fontL></a>
+                </li>
+                <li>
+                  <a href="PTR.html">
+                <fontL>PTR</fontL>
+              </a>
+                </li>
+
+              </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents19">
+
+                                     <span class="nav-link-text">ENC, KMN, VRF</span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents19">
+
+
+                <li >
+                  <a href="ENC.html">ENC</a>
+                </li>
+
+
+                <li>
+                  <a href="KMN.html">KMN</a>
+                </li>
+
+
+
+                <li>
+                  <a href="VRF.html">VRF</a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
+
+
+                <li >
+                  <a href="IEX.html">IEX</a>
+                </li>
+
+
+
+
+            <li >
+              <a href="INJ.html">INJ</a>
+            </li>
+
+            <li>
+              <a href="LOP.html"><fontL>LOP</fontL></a>
+            </li>
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents17">
+
+                                 <span class="nav-link-text">MAD, MAL, MUS, MDL</span>
+                                 </a>
+
+              <ul class="sidenav-third-level collapse " id="collapseComponents17">
+
+                <li>
+                  <a href="MAD.html">MAD</a>
+                </li>
+                <li>
+                  <a href="MAL.html">MAL</a>
+                </li>
+                <li>
+                  <a href="MUS.html">MUS</a>
+                </li>
+                <li>
+                  <a href="MDL.html">MDL</a>
+                </li>
+
+              </ul>
+            </li>
+
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cryptography">
+              <a class="nav-link nav-link-collapse " data-toggle="collapse" href="#collapseComponents21">
+
+                                     <span class="nav-link-text">PRN, TRN </span>
+                                     </a>
+
+              <ul class="sidenav-third-level collapse show" id="collapseComponents21">
+
+                <li class="active">
+                  <a href="PRN.html">PRN</a>
+                </li>
+
+                <li>
+                  <a href="TRN.html">TRN</a>
+                </li>
+
+
+
+              </ul>
+            </li>
+
+
+
+
+
+            </ul>
+            </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Old">
+   <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents35" data-parent="#exampleAccordion">
+      <i class="fa fa-fw fa-star"></i>
+      <span class="nav-link-text">Old Classes/Examples</span>
+      </a>
+
+   <ul class="sidenav-second-level collapse " id="collapseComponents35">
+
+
+
+
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents36">
+
+                  <span class="nav-link-text">Classes</span>
+                  </a>
+
+<ul class="sidenav-third-level collapse " id="collapseComponents36">
+
+ <li >
+   <a href="../Old/BOFClass.html">BOF</a>
+ </li>
+
+
+</ul>
+</li>
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents37">
+
+                  <span class="nav-link-text">Examples</span>
+                  </a>
+
+<ul class="sidenav-third-level collapse " id="collapseComponents37">
+
+ <li>
+   <a href="../Old/BOFExample.html">BOF</a>
+ </li>
+
+
+</ul>
+</li>
+
+
+      </ul></li>
+  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Enlightenment">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-lightbulb-o"></i>
+            <span class="nav-link-text">Enlightenment</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents4">
+              <li>
+                  <a href="../Background/index.html">Background</a>
+               </li>
+            <li>
+              <a href="../Enlightenment/Definitions.html">Definitions</a>
+            </li>
+            <li>
+              <a href="../Enlightenment/otherclassifications.html">Other Classifications</a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Publications">
+          <a class="nav-link" href="../Publications/index.html">
+            <i class="fa fa-fw fa-book"></i>
+            <span class="nav-link-text">Publications</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Team">
+          <a class="nav-link" href="../Team/index.html">
+            <i class="fa fa-fw fa-users"></i>
+            <span class="nav-link-text">Team</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Team">
+                      <a class="nav-link" href="../Home/Contact Info.html">
+                        <i class="fa fa-fw fa-user-plus"></i>
+                        <span class="nav-link-text">Contact Us</span>
+                      </a>
+                    </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-md-0 mobile mobile2" action="../search.html">
+        <input class="form-control mr-sm-2 tipue_search_input" type="text" placeholder="Search" name="q" id="tipue_search_input" >
+        <button class="btn btn-outline-success my-2 my-sm-0 enableOnInput" type="submit" disabled="disabled">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid" align="center">
+
+        <fontST>Pseudo-Random Number Generation Bugs (PRN) Examples</fontST>
+    </div>
+    <div class="container-fluid" align="left">
+    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2001-1141"><p class="text-info"><fontS>CVE-2001-1141</fontS></p></a>
+    <p><fontSS>BF Taxonomy</fontSS></p>
+  <ul><strong>Cause: </strong><cause>Improper PRNG Algorithm</cause> (C <code>md_rand</code> - the secret PRNG state is updated with portion, as small as on byte, of the PRNG's previous output, which is not secret)</ul>
+    <ul><strong>Attributes: </strong>
+      <ul>Function: <attribute>Mixing</attribute> (back into entropy pool)</ul>
+      <ul>Algorithm: <attribute>Hash Function </attribute>(<attribute> SHA-1</attribute> used for PRNG output and to update its internal secret state)</ul>
+      <ul>Used For: <attribute>Generation</attribute> (of cryptographic keying material - nonces, cryptographic keys)</ul>
+      <ul><u>Pseudo-Randomness Requirement</u>: <attribute>Sufficicent Space Size</attribute> and <attribute>Unpredictability</attribute> (can be predicted from previous value through brute force)</ul>
+    </ul>
+
+    <ul><strong>Consequence: </strong><consequence>KMN</consequence>>Generate with <consequence>IEX</consequence> of future <consequence>keying</consequence></ul>
+
+    <p><fontSS>BF Description</fontSS></p>
+    <ul><cause>Use of improper PRNG algorithm</cause> (C <code> md_rand</code> uses <attribute>SHA-1</attribute> for <attribute>mixing</attribute> back in the entropy pool portion, as small as one byte, of previous output to update PRNG’s state), allows <attribute>generation</attribute> of cryptographic keying material (nonces and cryptographic keys) that does not satisfy the <attribute>sufficient space size</attribute> and <attribute>unpredictability</attribute> (can be predicted from previous values through brute force) pseudo-randomness requirements, which leads to <consequence>KMN</consequence>>Generate and <consequence>IEX</consequence> of future <consequence>keying material</consequence>.</ul>
+
+    <p><fontSS>Analysis</fontSS></p>
+        <p><ul>A PRNG used for cryptography does not satisfy the requirement of unpredictability from previous values, because the internal state can be determined from number of output requests. Possible consequences include: IEX of future PRNG output (CVE-2001-1141) (which is KMN>Generation failure) and weak encryption, confidentiality compromise (which is ENC>Confidentiality failure).</ul></p>
+        <p><ul>The entropy accumulation implementation (entropy pool and associated mixing function) allows reconstruction of the PRNG internal state . The mixing hash function for md (in the C <code>md_rand</code>) gets half of the previous value of md and bytes from the PRNG internal state. Wrongly, the half used is the one with the PRNG’s previous output (failed implementation relative to specification). Also, the number of used state bytes depends on the number of bytes requested as output, which could be as small as one byte. This enables a brute-force attack. The PRNG state could be reconstructed from the output of one large PRNG request (large enough to gain knowledge on md) followed by consecutive 1-byte PRNG requests.</ul></p>
+    <p>
+        <fontSS>Source Code</fontSS>
+    </p>
+    <p>
+        <ul>
+            <table align="center">
+                <tr>
+                    <td align="center"> Code With Bug</td>
+                    <td align="center"> Code With Fix</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="sourceCodeTable">
+                            <table>
+                                <tr>
+                                    <td><pre style="margin: 0; line-height: 125%">Source Code Not Available</pre>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="sourceCodeTable">
+                            <table>
+                                <tr>
+                                    <td><pre style="margin: 0; line-height: 125%">Source Code Not Available</pre>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </ul>
+    </p>
+    <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4107"><p class="text-info"><fontS>CVE-2008-4107</fontS></p></a>
+    <p><fontSS>BF Taxonomy</fontSS></p>
+  <ul><strong>Cause: </strong><cause>Improper PRNG Algorithms</cause> (not cryptographically strong PHP 5 <code>rand</code> and <code>mt_rand</code>)</ul>
+    <ul><strong>Attributes: </strong>
+      <ul>Function: <attribute>Generate</attribute> (pseudo-random numbers)</ul>
+      <ul>Algorithms: e.g., LCG or LSFR, Mersenne Twister</ul>
+      <ul>Used For: <attribute>Generation</attribute> (of passwords)</ul>
+      <ul><u>Pseudo-Randomness Requirement</u>: <attribute>Unpredictability/Indistinguishability</attribute> and <attribute>Prediction Resistance</attribute></ul>
+    </ul>
+
+    <ul><strong>Consequence: </strong><consequence>IEX</consequence> (of password), leading to <consequence>ATN</consequence></ul>
+
+    <p><fontSS>BF Description</fontSS></p>
+    <ul><cause>Improper PRNG algorithms</cause>  (not cryptographically strong PHP 5 <code>rand></code> and <code>mt_rand</code>, based on <attribute>algorithms</attribute> such as LCG or LFSR, and Mersenne Twister) used to <attribute>generate</attribute> pseudo-random numbers, allow <attribute>generation</attribute> of passwords that do not satisfy the <attribute>unpredictability/ indistinguishability</attribute> and <attribute>prediction resistance</attribute> pseudo-randomness requirements and may be exploited for <consequence>IEX</consequence> of password, leading to <consequence>ATN</consequence>.</ul>
+
+    <p><fontSS>Analysis</fontSS></p>
+        <p><ul>PHP’s <code>rand()</code> usually uses LCG or LFSR, which is weak. PHP 5 <code>mt_rand()</code> uses Mersenne Twister, which is weak as well. It enables finding the internal state and all future values from 624 values. This vulnerability can be used for password guessing (CVE-2008-4107). </ul></p>
+        <p>
+        <fontSS>Source Code</fontSS>
+    </p>
+    <p>
+        <ul>
+            <table align="center">
+                <tr>
+                    <td align="center"> Code With Bug</td>
+                    <td align="center"> Code With Fix</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="sourceCodeTable">
+                            <table>
+                                <tr>
+                                    <td><pre style="margin: 0; line-height: 125%">Source Code Not Available</pre>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="sourceCodeTable">
+                            <table>
+                                <tr>
+                                    <td><pre style="margin: 0; line-height: 125%">Source Code Not Available</pre>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </ul>
+    </p>
+<!--
+  <div align="center"><img src="../images/thinLine.jpg"></div>
+  <p class="text-info"><fontS><a name="ref">References</a></fontS></p>
+  <small>
+  <ul>[1] Bojanova, I., Black, P. E., Yesha, Y., Wu, Yan, Evans, Z., Poster: The Bugs Framework (BF) – First Classes: Buffer Overflow (BOF), Injection (INJ), Control of Interaction Frequency (CIF), STC 2017, NIST, Gaithersburg, MD, USA.</ul>
+  <ul>[2] The MITRE Corporation, <a target="_blank" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1919">CVE-2016-1919</a>.</ul>
+  <ul>[3] openwall.net, [CVE-2016-1919] "<a target="_blank" href="http://lists.openwall.net/bugtraq/2016/01/17/2">Weak eCryptFS Key generation from user password</a>."</ul>
+  <ul>[4] The MITRE Corporation, <a target="_blank" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=cve-2015-0204">CVE-2015-0204</a>.</ul>
+  <ul>[5] The MITRE Corporation, <a target="_blank" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1637">CVE-2015-1637</a>.</ul>
+  <ul>[6] The MITRE Corporation, <a target="_blank" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1067">CVE-2015-1067</a>.</ul>
+  <ul>[7] R. Heaton, "<a target="_blank" href="https://robertheaton.com/2015/04/06/the-ssl-freak-vulnerability/">The SSL FREAK vulnerability explained</a>."</ul>
+  <ul>[8] Censys, <a target="_blank" href="https://censys.io/blog/freak">The FREAK Attack</a>.</ul>
+  <ul>[9] StackExchange, <a target="_blank" href="https://android.stackexchange.com/questions/101929/protecting-phone-from-the-freak-bug/101966">Protecting phone from the FREAK bug</a>.</ul>
+  <ul>[10] GitHub, openssl, <a target="_blank" href="https://github.com/openssl/openssl/commit/ce325c60c74b0fa784f5872404b722e120e5cab0?diff=split">Only allow ephemeral RSA keys in export ciphersuites</a>.</ul>
+  </small>
+</div>-->
+  <footer class="sticky-footer">
+    <div class="container">
+      <div class="text-center">
+        <small><p  style="top: 9px; position:relative;" class=""><a href="https://www.nist.gov/disclaimer">Disclaimer Notice</a> & <a href="https://www.nist.gov/privacy-policy"> Privacy Statement / Security Notice</a><br><a href="https://www.nist.gov/">NIST</a> is an Agency of the <a href="https://www.commerce.gov/">U.S. Dept. of Commerce</a></p></small>
+      </div>
+    </div>
+  </footer>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+  </a>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/popper/popper.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="../js/custom.js"></script>
+  <!-- Custom scripts for this page-->
+  <!-- Toggle between fixed and static navbar-->
+
+
+</div>
+</body>
+
+</html>
