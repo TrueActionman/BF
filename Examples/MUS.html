@@ -546,47 +546,55 @@
         <fontST>Memory Use Bugs (MUS) Examples</fontST>
     </div>
 <div class="container-fluid" align="left">
-  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160"><p class="text-info"><fontS>CVE-2014-0160</fontS></p></a>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160"><p class="text-info"><fontS>CVE-2014-0160 - Heartbleed Buffer Overflow</fontS></p></a>
   <p><fontSS>BF Taxonomy</fontSS></p>
-  <ul>MAD and MUS</ul>
-  <ul><strong>Common Attributes:</strong></ul>
-  <ul>
+  <ul>MAD (Reposition)</ul>
+  <ul><strong>Cause: </strong><cause>Improper Object
+    </cause> - Wrong Size Used (for <code>s→s3→rrec.data[0]</code>)</ul>
+
+  <ul><strong>Attributes:</strong>
+  
+    <ul>Mechanism: <attribute>Sequential</attribute></ul>
+
   <ul>Source Code: <attribute>Codebase</attribute> (d1_both.c and t1_lib.c)</ul>
   <ul>Execution Space: <attribute>Userland</attribute></ul>
-  <ul>object Location: <attribute>Heap</attribute></ul>
+  <ul>Pointer Span: <attribute>Huge</attribute></ul>
+
+  <ul>Object Location: <attribute>Heap</attribute></ul>
 
 
     </ul>
-    <ul>MUS</ul>
-  <ul><strong>Cause: </strong><cause>Misssing Operation</cause></ul>
+    <ul><strong>Consequence: </strong><consequence>Improper Pointer</consequence> - Over Bounds</ul>
+
+    <ul>MUS (Clear)</ul>
+  <ul><strong>Cause: </strong><cause>Improper Operation</cause> - Missing</ul>
   <ul><strong>Attributes: </strong>
-
-    <ul>Operation: <attribute>Clear</attribute></ul>
-
-    <ul>Owner: <attribute>Pointer, Reference</attribute></ul>
-    <ul>object: <attribute>Data Structure</attribute></ul>
-    <ul>Excursion: <attribute>Sequential</attribute></ul>
-    <ul>Size: <attribute>Little, Moderate, Huge/attribute</ul>
+    <ul>Mechanism: <attribute>Sequential</attribute></ul>
+    <ul>Source Code: <attribute>Codebase</attribute></ul>
+    <ul>Execution Space: <attribute>Userland</attribute></ul>
+    <ul>Pointer Span: <attribute>Huge</attribute></ul>
+    <ul>Object Location: <attribute>Heap</attribute></ul>
 
   </ul>
-  <ul><strong>Consequence: </strong><consequence>Not Cleared</consequence> which could lead to information exposure</ul>
-  <ul>MUS</ul>
-<ul><strong>Cause: </strong><cause>Wrong Size</cause></ul>
+  <ul><strong>Consequence: </strong><consequence>Memory Error</consequence> - Not Cleared Object </ul>
+  <ul>MUS (Read)</ul>
+<ul><strong>Cause: </strong><cause>Improper Pointer</cause> - Over Bounds
+  (for <code>s→s3→rrec.data[0]</code>)</ul>
 <ul><strong>Attributes: </strong>
 
-  <ul><strong>Operation:</strong> <attribute>Read</attribute></ul>
+  <ul>Mechanism: <attribute>Sequential</attribute></ul>
 
-  <ul><strong>Owner:</strong> <attribute>Pointer</attribute> (pl)</ul>
-  <ul><strong>object:</strong> <attribute>Data Structure</attribute> (s−>s3−>rrec.data[0])</ul>
+  <ul>Source Code: <attribute>Codebase</attribute> (d1_both.c and t1_lib.c)</ul>
+  <ul>Execution Space: <attribute>Userland</attribute></ul>
+  <ul>Pointer Span: <attribute>Huge</attribute></ul>
 
-  <ul>Excursion: <attribute>Sequential</attribute></ul>
-  <ul>Size: <attribute>Huge</ul>
+  <ul>Object Location: <attribute>Heap</attribute></ul>
 
 
 </ul>
-<ul><strong>Consequence: </strong><consequence>Overreading</consequence>, which could lead to information exposure</ul>
+<ul><strong>Consequence: </strong><consequence>Memory Error</consequence> - Buffer Overflow</ul>
   <p><fontSS>BF Description:</fontSS></p>
-      <p><ul>A <cause>dangling pointer</cause> during dynamic reallocation of memory leads to memory corruption, which allows DoS or potentially code execution.</ul></p>
+      <p><ul>Heartbleed is a vulnerability due to a bug in the OpenSSL – a crypto library for the Transport Layer Security (TLS) and Secure Sockets Layer (SSL) protocols. Using the heartbeat extension tests in TLS and Datagram Transport Layer Security (DTLS) protocols, a user can send a heartbeat request to a server. The request contains a string and a <code>payload</code> unsigned integer, which value is expected to be the string size. The server responds with the same string. However, due to the bug, a malicious user could set the <code>payload</code> as big as <code>65535</code> and the server would read out of bounds. This could expose confidential information that was not cleared before release.</ul></p>
   <p><fontSS>CVE Description</fontSS></p>
       <p></p>
   <p><fontSS>Analysis</fontSS></p>
@@ -626,7 +634,82 @@
           </table>
       </ul>
   </p>
+  <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20991"><p class="text-info"><fontS>CVE-2018-20991 - Rust SmallVec Iterator Panic</fontS></p></a>
+  <p><fontSS>BF Taxonomy</fontSS></p>
+  <ul>MUS (Deallocate)</ul>
+  <ul><strong>Cause: </strong><cause>Improper Pointer 
+    </cause> - Dangling Pointer (to <code>SmallVec</code>)</ul>
 
+  <ul><strong>Attributes:</strong>
+  
+    <ul>Mechanism: <attribute>Explicit</attribute></ul>
+
+  <ul>Source Code: <attribute>Standard Library</attribute> (<code>lib.rs</code>>)</ul>
+  <ul>Execution Space: <attribute>Userland</attribute></ul>
+
+  <ul>Object Ownership: <attribute>Shared</attribute></ul>
+  <ul>Object Location: <attribute>Heap</attribute></ul>
+
+
+    </ul>
+    <ul><strong>Consequence: </strong><consequence>Memory Error</consequence> - Double Free</ul>
+
+    <ul>MUS (Deallocate)</ul>
+    <ul><strong>Cause: </strong><cause>Improper Pointer 
+    </cause> - Wrong Sized Used (for <code>SmallVec</code>)</ul>
+  <ul><strong>Attributes: </strong>
+    <ul>Mechanism: <attribute>Explicit</attribute></ul>
+
+  <ul>Source Code: <attribute>Standard Library</attribute> (<code>lib.rs</code>>)</ul>
+  <ul>Execution Space: <attribute>Userland</attribute></ul>
+
+  <ul>Object Ownership: <attribute>Shared</attribute></ul>
+  <ul>Object Location: <attribute>Heap</attribute></ul>
+
+  </ul>
+  <ul><strong>Consequence: </strong><consequence>Memory Error</consequence> - Memory Leak </ul>
+  
+  <p><fontSS>BF Description:</fontSS></p>
+      <p><ul>Rust is a multi-paradigm programming language focused on safe concurrency. It has a similar syntax to C++ and offers features to deal with dynamic memory allocation, such as smart pointers. In general, a Rust programmer does not need to keep track of memory allocation and deallocation, as the language is designed to be memory safe this way.</ul></p>
+  <p><fontSS>CVE Description</fontSS></p>
+      <p></p>
+  <p><fontSS>Analysis</fontSS></p>
+      <p><ul>The versions before Rust 0.6.3 have a bug in the <code>lib.rs</code> file. The <code>insert_many()</code> method in the <code>SmallVec</code> class has two parameters: an iterable <code>I</code> and an <code>index</code>. The method inserts all elements in the iterable <code>I</code> at position <code>index</code>, shifting all the following elements backwards. In the <code>SmallVec</code> class, if an iterator passed to <code>SmallVec::insert_many()</code> panics in <code>Iterator::next</code>, the destructor is called while the vector is in an inconsistent state, possibly causing double free (deallocation via references to same object).</ul></p>
+  <p>
+      <fontSS>Source Code</fontSS>
+  </p>
+  <p>
+      <ul>
+          <table align="center">
+              <tr>
+                  <td align="center"> Code With Bug</td>
+                  <td align="center"> Code With Fix</td>
+              </tr>
+              <tr>
+                  <td>
+                      <div class="sourceCodeTable">
+                          <table>
+                              <tr>
+                                  <td><pre style="margin: 0; line-height: 125%">Source Code Not Available</pre>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                  </td>
+                  <td>
+                      <div class="sourceCodeTable">
+                          <table>
+                              <tr>
+                                  <td><pre style="margin: 0; line-height: 125%">Source Code Not Available</pre>
+                                  </td>
+                              </tr>
+                          </table>
+                      </div>
+                  </td>
+              </tr>
+          </table>
+      </ul>
+  </p>
 </div>
   <footer class="sticky-footer">
     <div class="container">
